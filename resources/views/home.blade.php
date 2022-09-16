@@ -9,10 +9,21 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Grow your business with Vesperr</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
-          <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          <h1 data-aos="fade-up">Cari data kabupaten Pelalawan</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
+            Disini anda bisa mencari data dan artikel mengenai kabupaten Pelalawan dengan cepat, mudah dan akurat.
+          </h2>
+          <div data-aos="fade-up" data-aos-delay="800" style="margin-top: -30px">
+            <form action="#">
+              <div class="input-group">
+                <input class="form-control form-control-lg border-end-0 border" type="text" placeholder="Cari dataset" id="search">
+                <span class="input-group-append">
+                    <button class="btn btn-lg btn-outline-secondary bg-white border-start-0 border ms-n3 rounded-end" type="button">
+                      <i class='bx bx-search-alt-2'></i>
+                    </button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
