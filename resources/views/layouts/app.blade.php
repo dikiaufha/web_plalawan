@@ -10,9 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-<<<<<<< HEAD
   @include('partial.styling')
-=======
+
   <link href="assets/img/favicon.png" rel="icon">
 
   <!-- Google Fonts -->
@@ -37,7 +36,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
->>>>>>> 0f5da5ec5fa697eafa8bd9493cfbe26b303842c4
+
 </head>
 
 <body>
