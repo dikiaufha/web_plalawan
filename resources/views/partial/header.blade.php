@@ -2,15 +2,15 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="">Pelalawan</a></h1>
+        <h1><a href=""><img src="assets/img/logo.png" alt="" class="img-fluid">Pelalawan</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Dataset</a></li>
-          <li><a class="nav-link scrollto" href="#about">Visualisasi</a></li>
+          <li><a class="nav-link scrollto" href="about">Visualisasi</a></li>
           <li><a class="nav-link scrollto" href="#services">Infografik</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
           <li><a class="nav-link scrollto" href="#team">Organisasi</a></li>

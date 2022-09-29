@@ -9,9 +9,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Cari data kabupaten Pelalawan</h1>
+          <h1 data-aos="fade-up">Telusuri data/info terkait kesehatan di lingkup Kab. Pelalawan</h1>
           <h2 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
-            Disini anda bisa mencari data dan artikel mengenai kabupaten Pelalawan dengan cepat, mudah dan akurat.
+          Fitur ini dapat anda gunakan untuk menelusuri data dan informasi terkait sektor kesehatan di wilayah Kabupaten Pelalawan.
           </h2>
           <div data-aos="fade-up" data-aos-delay="800" style="margin-top: -30px">
             <form action="#">

@@ -46,7 +46,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="">Pelalawan</a></h1>
+        <h1><a href=""><img src="assets/img/logo.png" alt="" class="img-fluid">Pelalawan</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -54,7 +54,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Dataset</a></li>
-          <li><a class="nav-link scrollto" href="#about">Visualisasi</a></li>
+          <li><a class="nav-link scrollto" href="about">Visualisasi</a></li>
           <li><a class="nav-link scrollto" href="#services">Infografik</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
           <li><a class="nav-link scrollto" href="#team">Organisasi</a></li>
@@ -73,9 +73,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Plajari mengenai data kabupaten Pelalawan</h1>
+          <h1 data-aos="fade-up">Plajari data kesehatan dilingkup kab. Pelalawan</h1>
           <h2 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
-            Bantuan mengenai data plalawan.
+            Bantuan mengenai data kesehatan Plalawan.
           </h2>
           
         </div>
@@ -167,24 +167,44 @@
 
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
-      <div class="container">
-
+      <div class="container">      
         <div class="row">
-
+        <div class="col-lg-8">
+          <h2 data-aos="fade-up">Plajari data kesehatan dilingkup kab. Pelalawan</h2>
+          <h4 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
+            Bantuan mengenai data kesehatan Plalawan.
+          </h4>
+          
+          </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in-left" data-aos-delay="200">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
+            <div class="card" data-aos="zoom-in-left" data-aos-delay="200">
+            <div class="dropdown">
+              <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Dropdown button
+                </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Link 1</a></li>
+                <li><a class="dropdown-item" href="#">Link 1</a></li>
+                <li><a class="dropdown-item" href="#">Link 1</a></li>
+                <li><a class="dropdown-item" href="#">Link 1</a></li>
+              </ul>
+              <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Dropdown button
+               </button>
+               <ul class="dropdown-menu">
                 <li>Aida dere</li>
                 <li>Nec feugiat nisl</li>
                 <li>Nulla at volutpat dola</li>
                 <li>Pharetra massa</li>
                 <li>Massa ultricies mi</li>
               </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
+               <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Dropdown button
+               </button>
+               <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Dropdown button
+               </button>
+
             </div>
           </div>
 
