@@ -24,3 +24,7 @@ Route::get('/about', function () {
 Route::get('/bantuan', function () {
     return view('bantuan');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
