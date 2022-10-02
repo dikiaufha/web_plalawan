@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/datadasar', function () {
+    return view('datadasar');
 });
 
 Route::get('/bantuan', function () {
@@ -27,4 +27,8 @@ Route::get('/bantuan', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
+});
+
+Route::get('/datalayanan', function () {
+    return view('datalayanan');
 });
