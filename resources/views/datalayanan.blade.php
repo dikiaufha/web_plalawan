@@ -12,8 +12,6 @@
   <!-- Favicons -->
   @include('partial.styling')
 
-  <link href="assets/img/favicon.png" rel="icon">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -42,34 +40,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1><a href="/"><img src="assets/img/logo.png" alt="" class="img-fluid">Pelalawan</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Dataset</a></li>
-          <li class="dropdown"><a href="#"><span>Visualisasi</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="datadasar">Data Dasar</a></li>
-              <li><a href="datalayanan">Data Layanan</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#services">Infografik</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
-          <li><a class="nav-link scrollto" href="#team">Organisasi</a></li>
-          <li><a class="nav-link scrollto text-success fw-semibold" href="/bantuan">Bantuan</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header>
+  @include('partial.header')
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -85,7 +56,7 @@
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src="assets/img/page2.jpg" class="img-fluid animated" alt="">
+          <img src="assets/img/page3.jpg" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -183,61 +154,61 @@
           <div class="col-lg-3 col-md-4">
             <div class="icon-box">
               <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Data Faskes</a></h3>
+              <h3><a href="">Data Kunjungan Pasien Ke RSUD</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Data Naskes</a></h3>
+              <h3><a href="">Data Pasien Dirujuk Dari RSUD</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Data Sarpras</a></h3>
+              <h3><a href="">Data 10 Penyakit Terbanyak</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
             <div class="icon-box">
               <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Data Apotik</a></h3>
+              <h3><a href="">Data Pasien Meninggal</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Data Kegiatan</a></h3>
+              <h3><a href="">Data Kunjungan Pasien ke Puskesmas</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Toko Alkes</a></h3>
+              <h3><a href="">Toko Pasien Dirujuk Dari Puskesmas</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Data Laboratorium Kesehatan</a></h3>
+              <h3><a href="">Data Kelahiran/Persalinan</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Data TEmpat Praktek Dokter</a></h3>
+              <h3><a href="">Data 10 Klasifikasi Obat Terbanyak didistribusikan</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Data Pusat Reabilitasi Dan Terapi Kesehatan</a></h3>
+              <h3><a href="">Data Vaksin 1,2 Dan Booster Covin-19</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Data Item Jaminan Kesehatan </a></h3>
+              <h3><a href="">Data sebaran Penyakit Kronis/Menular Per Kecamatan/Desa (Kelurahan)</a></h3>
             </div>
           </div>
           <!-- <div class="col-lg-3 col-md-4 mt-4">
