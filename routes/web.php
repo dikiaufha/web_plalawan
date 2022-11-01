@@ -1,6 +1,10 @@
 <?php
 
+
+// use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DatafaskesController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +36,11 @@ Route::get('/dashboard', function () {
 Route::get('/datalayanan', function () {
     return view('datalayanan');
 });
+
+// Route::get('/datafaskes', function () {
+//     return view('datafaskes');
+// });
+
+// Route::resource('customer', CustomerController::class);
+
+Route::resource('datafaskes', DatafaskesController::class);
