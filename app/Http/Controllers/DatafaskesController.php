@@ -27,7 +27,8 @@ class DatafaskesController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = 'Add Customer';
+        return view('datafaskes.create', $data);
     }
 
     /**

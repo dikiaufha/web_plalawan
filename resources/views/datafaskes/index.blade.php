@@ -171,8 +171,8 @@
                 </div>
             </form>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover">
+        <div class="card-body p-0 table-responsive">
+            <table class="table table-bordered table-striped table-hover m-0">
                 <thead>
                     <th>#</th>
                     <th>Customer Name</th>
@@ -189,7 +189,11 @@
                     <td>{{ $customer->contact_name }}</td>
                     <td>{{ $customer->address }}</td>
                     <td>{{ $customer->city }}</td>
-                    <td>Edit | Delate</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" href="{{ route('datafaskes.edit', $customer) }}">Edit</a>
+                        
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
                 </tr>
                 @endforeach
             </table>
