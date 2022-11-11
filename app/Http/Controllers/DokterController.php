@@ -8,18 +8,9 @@ use App\Models\DokterModel;
 
 class DokterController extends Controller
 {
-    public function dokterPage(Request $request) {
-        if ($request->ajax()) {
-        $data = DokterModel::latest()->get();
-        return Datatables::of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                return $actionBtn;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-    }
+    public function dokterPage() {
+        $dokter = DokterModel::latest()->paginate();
+        return view('dashboard.components.dokter.dokter', compact('dokter'));
     }
 
     public function addDokter(Request $request) {
@@ -30,6 +21,15 @@ class DokterController extends Controller
         ]);
 
         DokterModel::create($validatedData);
+
+    }
+
+    public function getDokterById($id) {
+        $dokter = DokterModel::find($id);
+        return $dokter;
+    }
+
+    public function updateDokter(Request $request) {
 
     }
 }

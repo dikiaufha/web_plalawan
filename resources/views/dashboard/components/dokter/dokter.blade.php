@@ -32,23 +32,21 @@
                         </thead>
                         <tbody>
                             @foreach ($dokter as $key => $data)
-                                @if ($data->defunct_ind == 'Y')
-                                    <tr class="table-danger">
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $data->name_dokter }}</td>
-                                        <td>{{ $data->alamat }}</td>
-                                        <td><i class="mdi mdi-check"></i></td>
-                                        <td><button></button></td>
-                                    </tr>
-                                @else
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $data->name_dokter }}</td>
-                                        <td>{{ $data->alamat }}</td>
-                                        <td></td>
-                                        <td><button></button></td>
-                                    </tr>
+                                <tr
+                                @if ($data->defunct_ind == "Y")
+                                    class="table-danger"
                                 @endif
+                                >
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $data->name_dokter }}</td>
+                                    <td>{{ $data->alamat }}</td>
+                                    <td>
+                                        @if ($data->defunct_ind == "Y")
+                                            <i class="mdi mdi-check"></i>
+                                        @endif
+                                    </td>
+                                    <td><button class="btn btn-info"></button></td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -115,9 +113,26 @@
             table();
         });
 
+        function clearForm() {
+            $("#nameDokter").val(null);
+            $("#alamatDokter").val(null);
+            document.getElementById("defunctInd").checked = false;
+        }
+
         function table() {
-            $('#table-data').DataTable({
-                fixedHeader: true,
+            var table = $('#table-data').DataTable({
+                searching: true,
+                paging: true,
+                "bDestroy": true
+            });
+            table.reload(true);
+        }
+
+        function showDokter() {
+            $.ajax({
+                type : 'GET',
+                url :  "{{ route('show.dokter') }}",
+
             });
         }
 
@@ -141,7 +156,7 @@
                         'Data Berhasil Di tambahkan',
                         'success'
                     );
-                    table();
+                    clearForm();
                 }
             });
         }
