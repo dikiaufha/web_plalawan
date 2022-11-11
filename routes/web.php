@@ -3,6 +3,8 @@
 
 // use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DatafaskesController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DokterController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,9 +31,7 @@ Route::get('/bantuan', function () {
     return view('bantuan');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 Route::get('/datalayanan', function () {
     return view('datalayanan');
@@ -44,3 +44,9 @@ Route::get('/datalayanan', function () {
 // Route::resource('customer', CustomerController::class);
 
 Route::resource('datafaskes', DatafaskesController::class);
+
+
+//DASHBOARD
+
+Route::get('/dokter', [DokterController::class, 'dokterPage'])->name('dokter.home');
+Route::post('/dokter', [DokterController::class, 'addDokter'])->name('add.dokter');
