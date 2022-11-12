@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  @section('title','Datafaskes')
+  @section('title','Langgam')
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -154,7 +154,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Data Faskes</h2>
+          <h2>Data langgam</h2>
           <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p> -->
         </div>
 

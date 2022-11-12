@@ -16,7 +16,16 @@
               <li><a href="datalayanan">Data Layanan</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#services">Infografik</a></li>
+          <li class="dropdown"><a href="#"><span>Info Data</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="datakecamatan">Data kecamatan</a></li>
+              <li><a href="datadesa">Data Desa</a></li>
+              <li><a href="dataserana">Data Sarana</a></li>
+              <li><a href="datakendaraanbermotor">Data Kendaraan Bermotor</a></li>
+              <li><a href="datamobil">Data Mobil</a></li> 
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="entitas">Data Entitas</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
           <li><a class="nav-link scrollto text-success fw-semibold" href="bantuan">Bantuan</a></li>
           <li><a class="nav-link scrollto " href="login">Login</a></li>
