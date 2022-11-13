@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  @section('title','Datafaskes')
+  @section('title','datalayanan')
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
   @include('partial.styling')
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -26,15 +27,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/app.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
-  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-  crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Vesperr - v4.9.0
@@ -57,14 +49,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Telusuri Data Faskes </h1>
+          <h1 data-aos="fade-up">Telusuri data/info </h1>
           <h2 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
-            Berita terkait kesehatan di lingkup Kab. Pelalawan
+            Bterkait kesehatan di lingkup Kab. Pelalawan
           </h2>
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src="assets/img/page4.jpg" class="img-fluid animated" alt="">
+          <img src="assets/img/page3.jpg" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -154,67 +146,39 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Data Faskes</h2>
+          <h2>Data Entitas</h2>
           <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p> -->
         </div>
 
-        <div class="card-header">
-            <form class="row row-cols-auto g-1">
-                <div class="col">
-                    <input class="form-control" type="text" name="q" value="{{ $q }}" placeholder="Search here..." />
-                </div>
-                <div class="col">
-                    <button class="btn btn-success">Refresh</button>
-                </div>
-                <div class="col">
-                    <a class="btn btn-primary" href="{{ route('datafaskes.create') }}">add</a>
-                </div>
-            </form>
-        </div>
-        <div class="card-body p-0 table-responsive">
-            <table class="table table-bordered table-striped table-hover m-0">
-                <thead>
-                    <th>#</th>
-                    <th>Customer Name</th>
-                    <th>Contact Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Action</th>
-                </thead>
-                <?php $no = 1 ?>
-                @foreach($customers as $customer)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $customer->customer_name }}</td>
-                    <td>{{ $customer->contact_name }}</td>
-                    <td>{{ $customer->address }}</td>
-                    <td>{{ $customer->city }}</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="{{ route('datafaskes.edit', $customer) }}">Edit</a>
-                        
-                        <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                </tr>
-                @endforeach
-            </table>
+        <div class="row" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 col-md-4">
+            <div class="icon-box">
+              <i class="ri-store-line" style="color: #ffbb2c;"></i>
+              <h3><a href="datasarpras">Data Sarpas</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+              <h3><a href="datanakes">Data Nakes</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+              <h3><a href="datanon">Data Non-Naskes</a></h3>
+            </div>
+          </div>
+          
         </div>
 
-
-    <!-- @extends('App')
-    @section('content') -->
-    <!-- <div class="card">
-        
-    </div> -->
-    <!-- @endsection -->
-
-
-</div>
+      </div>
     </section><!-- End Pricing Section -->
 
     <!-- ======= F.A.Q Section ======= -->
     
 
-     <!-- ======= Contact Section ======= -->
+    <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
@@ -290,7 +254,7 @@
   <!-- ======= Footer ======= -->
   @include('partial.Footer')
   <!-- End Footer -->
-    
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
@@ -299,5 +263,5 @@
   <script src="assets/js/main.js"></script>
     @yield('script')
 </body>
-</html>
 
+</html>

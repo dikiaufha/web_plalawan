@@ -154,61 +154,67 @@
           <div class="col-lg-3 col-md-4">
             <div class="icon-box">
               <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Data Kunjungan Pasien Ke RSUD</a></h3>
+              <h3><a href="datakunjunganrsud">Data Kunjungan Pasien Ke RSUD</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Data Pasien Dirujuk Dari RSUD</a></h3>
+              <h3><a href="datapasiendirujuk">Data Pasien Dirujuk Dari RSUD</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Data 10 Penyakit Terbanyak</a></h3>
+              <h3><a href="data10penyakit">Data 10 Penyakit Terbanyak</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
             <div class="icon-box">
               <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Data Pasien Meninggal</a></h3>
+              <h3><a href="datapasienmeninggal">Data Pasien Meninggal</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Data Kunjungan Pasien ke Puskesmas</a></h3>
+              <h3><a href="datakunjunganpasienkepuskesmas">Data Kunjungan Pasien ke Puskesmas</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Toko Pasien Dirujuk Dari Puskesmas</a></h3>
+              <h3><a href="datapasiendirujukdaripuskesmas">Data Pasien Dirujuk Dari Puskesmas</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+              <h3><a href="datapasiendirujukdaripolikliknik">Data Pasien Dirujuk Dari Poliklinik (Pemerintahan/Swasta)</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Data Kelahiran/Persalinan</a></h3>
+              <h3><a href="datapersalinan">Data Kelahiran/Persalinan</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Data 10 Klasifikasi Obat Terbanyak didistribusikan</a></h3>
+              <h3><a href="data10kalifikasiobat">Data 10 Klasifikasi Obat Terbanyak didistribusikan</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Data Vaksin 1,2 Dan Booster Covin-19</a></h3>
+              <h3><a href="datavaksin">Data Vaksin 1,2 Dan Booster Covin-19</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Data sebaran Penyakit Kronis/Menular Per Kecamatan/Desa (Kelurahan)</a></h3>
+              <h3><a href="datasebaranpenyakit">Data sebaran Penyakit Kronis/Menular Per Kecamatan/Desa (Kelurahan)</a></h3>
             </div>
           </div>
           <!-- <div class="col-lg-3 col-md-4 mt-4">
