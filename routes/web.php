@@ -49,5 +49,4 @@ Route::resource('datafaskes', DatafaskesController::class);
 //DASHBOARD
 
 Route::get('/dokter', [DokterController::class, 'dokterPage'])->name('dokter.home');
-Route::post('/dokter', [DokterController::class, 'addDokter'])->name('add.dokter');
-Route::get('/dokter/{dokter_id}', [DokterController::class, 'getDokterById'])->name('show.dokter');
+Route::post('/dokter', [DokterController::class, 'addDokter'])->name('dokter.add');

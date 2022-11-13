@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\DokterModel;
+use DataTables;
 
 class DokterController extends Controller
 {
+
     public function dokterPage() {
         $dokter = DokterModel::latest()->paginate();
         return view('dashboard.components.dokter.dokter', compact('dokter'));
@@ -25,8 +27,10 @@ class DokterController extends Controller
     }
 
     public function getDokterById($id) {
-        $dokter = DokterModel::find($id);
-        return $dokter;
+        $data = DokterModel::find($id);
+        return view('dashboard.components.dokter.dokter')->with([
+            'data' => $data
+        ]) ;
     }
 
     public function updateDokter(Request $request) {

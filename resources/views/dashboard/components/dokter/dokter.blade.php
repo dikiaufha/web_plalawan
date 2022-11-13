@@ -17,9 +17,9 @@
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
-                <div class="card-body">
-                    <a href="" class="btn btn-inverse-success mb-5" data-bs-toggle="modal"
-                        data-bs-target="#formModal">Tambah Data <i class="mdi mdi-plus"></i></a>
+                <div class="card-body" id="readData">
+                    <button class="btn btn-inverse-success mb-5" data-bs-toggle="modal" data-bs-target="#formModal">Tambah
+                        Data <i class="mdi mdi-plus"></i></button>
                     <table class="table table-hover" id="table-data">
                         <thead>
                             <tr>
@@ -32,20 +32,20 @@
                         </thead>
                         <tbody>
                             @foreach ($dokter as $key => $data)
-                                <tr
-                                @if ($data->defunct_ind == "Y")
-                                    class="table-danger"
-                                @endif
-                                >
+                                <tr @if ($data->defunct_ind == 'Y') class="table-danger" @endif>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $data->name_dokter }}</td>
                                     <td>{{ $data->alamat }}</td>
                                     <td>
-                                        @if ($data->defunct_ind == "Y")
+                                        @if ($data->defunct_ind == 'Y')
                                             <i class="mdi mdi-check"></i>
                                         @endif
                                     </td>
-                                    <td><button class="btn btn-info"></button></td>
+                                    <td>
+                                        <a href="" class="btn btn-sm btn-gradient-info btn-icon-text"
+                                            onclick="showDokter({{ $data->dokter_id }})">Edit <i
+                                                class="mdi mdi-file-check btn-icon-append"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -60,18 +60,19 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Dokter</h1>
+                    <h1 class="modal-title fs-5" id="modelHeading"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form id="dokterForm" name="dokterForm">
+                        <input type="hidden" name="dokter_id" id="dokter_id">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Dokter</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nameDokter" name="nameDokter"
+                                        <input type="text" class="form-control" id="name_dokter" name="name_dokter"
                                             required />
                                     </div>
                                 </div>
@@ -80,8 +81,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Alamat Dokter</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="alamatDokter" name="alamatDokter"
-                                            required />
+                                        <input type="text" class="form-control" id="alamat" name="alamat" required />
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     <label class="col-sm-3 col-form-label">Delete</label>
                                     <div class="col-sm-9">
                                         <input type="checkbox" class="form-check-input form-check-danger" value="Y"
-                                            name="defunctInd" id="defunctInd">
+                                            name="defunct_ind" id="defunct_ind">
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary modal-close" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onClick="addDokter()">Save Data</button>
+                    <button type="submit" class="btn btn-primary" onclick="addDokter()">Save Data</button>
                 </div>
             </div>
         </div>
@@ -110,44 +110,31 @@
 
     <script>
         $(document).ready(function() {
-            table();
+            readDokter()
         });
 
-        function clearForm() {
-            $("#nameDokter").val(null);
-            $("#alamatDokter").val(null);
-            document.getElementById("defunctInd").checked = false;
-        }
-
-        function table() {
-            var table = $('#table-data').DataTable({
-                searching: true,
-                paging: true,
-                "bDestroy": true
-            });
-            table.reload(true);
-        }
-
-        function showDokter() {
-            $.ajax({
-                type : 'GET',
-                url :  "{{ route('show.dokter') }}",
-
+        function readDokter() {
+            $.get("{{ route('dokter.home') }}", {}, function(data, status) {
+                $('#table-data').DataTable({
+                    searching: true,
+                    paging: true,
+                    "bDestroy": true
+                });
             });
         }
 
         function addDokter() {
-            var nameDokter = $("#nameDokter").val();
-            var alamatDokter = $("#alamatDokter").val();
-            var defunctInd = $("#defunctInd").prop("checked") ? "Y" : "N"
+            var name_dokter = $("#name_dokter").val();
+            var alamat = $("#alamat").val();
+            var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
             $.ajax({
                 type: 'POST',
-                url: "{{ route('add.dokter') }}",
+                url: "{{ route('dokter.add') }}",
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    name_dokter: nameDokter,
-                    alamat: alamatDokter,
-                    defunct_ind: defunctInd
+                    name_dokter: name_dokter,
+                    alamat: alamat,
+                    defunct_ind: defunct_ind
                 },
                 success: function(data) {
                     $(".modal-close").click();
@@ -157,6 +144,7 @@
                         'success'
                     );
                     clearForm();
+                    readDokter();
                 }
             });
         }
