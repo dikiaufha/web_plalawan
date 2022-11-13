@@ -211,16 +211,20 @@ Route::get('/datasebaranpenyakit', function () {
 
 // DATA ENTITAS
 
-Route::get('/datasebaranpenyakit', function () {
-    return view('datalayanan.datasebaranpenyakit');
+Route::get('/dataentitas', function () {
+    return view('dataentitas');
 });
 
-Route::get('/datasebaranpenyakit', function () {
-    return view('datalayanan.datasebaranpenyakit');
+Route::get('/datasarpras', function () {
+    return view('dataentitas.datasarpras');
 });
 
-Route::get('/datasebaranpenyakit', function () {
-    return view('datalayanan.datasebaranpenyakit');
+Route::get('/datanakes', function () {
+    return view('dataentitas.datanakes');
+});
+
+Route::get('/datanon', function () {
+    return view('dataentitas.datanon');
 });
 
 //DASHBOARD

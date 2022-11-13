@@ -25,7 +25,7 @@
               <li><a href="datamobil">Data Mobil</a></li> 
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="entitas">Data Entitas</a></li>
+          <li><a class="nav-link scrollto" href="dataentitas">Data Entitas</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
           <li><a class="nav-link scrollto text-success fw-semibold" href="bantuan">Bantuan</a></li>
           <li><a class="nav-link scrollto " href="login">Login</a></li>
