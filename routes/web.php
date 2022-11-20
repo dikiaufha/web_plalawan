@@ -5,7 +5,8 @@
 use App\Http\Controllers\DatafaskesController;
 use App\Http\Controllers\LanggamController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DokterController;
+use App\Http\Controllers\DataDasarController;
+use App\Http\Controllers\ApotikController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -133,10 +134,6 @@ Route::get('/datasarpras', function () {
     return view('datadasar.datasarpras');
 });
 
-Route::get('/dataapotik', function () {
-    return view('datadasar.dataapotik');
-});
-
 Route::get('/datakegiatan', function () {
     return view('datadasar.datakegiatan');
 });
@@ -227,7 +224,11 @@ Route::get('/datanon', function () {
     return view('dataentitas.datanon');
 });
 
-//DASHBOARD
+//DASHBOARD URL START
 
-Route::get('/dokter', [DokterController::class, 'dokterPage'])->name('dokter.home');
-Route::post('/dokter', [DokterController::class, 'addDokter'])->name('dokter.add');
+Route::resource('/apotik', ApotikController::class);
+Route::post('/apotik-edit', [ApotikController::class, 'edit'])->name('apotik.edit');
+
+// DASHBOARD URL END
+
+Route::get('/datadasar', [DataDasarController::class, 'apotikPage'])->name('datadasar.apotik');

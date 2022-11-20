@@ -25,15 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/app.css">
-
-  <!-- =======================================================
-  * Template Name: Vesperr - v4.9.0
-  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -52,7 +44,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400" style="margin-top: 20px;">
             Bterkait kesehatan di lingkup Kab. Pelalawan
           </h2>
-          
+
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
           <img src="assets/img/page2.jpg" class="img-fluid animated" alt="">
@@ -102,9 +94,9 @@
       </div>
     </section><!-- End Clients Section -->
 
-   
+
  <!-- ======= About Us Section ======= -->
- 
+
  <!-- End About Us Section -->
 
 
@@ -171,7 +163,7 @@
           <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
             <div class="icon-box">
               <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="dataapotik">Data Apotik</a></h3>
+              <h3><a href="/datadasar-apotik" data-bs-toggle="modal" data-bs-target="#apotikTable">Data Apotik</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
@@ -228,7 +220,7 @@
     </section><!-- End Pricing Section -->
 
     <!-- ======= F.A.Q Section ======= -->
-    
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -313,7 +305,12 @@
   @include('partial.script')
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     @yield('script')
+  @include('partial.script.datadasar')
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>
