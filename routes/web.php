@@ -26,7 +26,9 @@ Route::get('/', function () {
 });
 
 Route::get('/datadasar', function () {
-    return view('datadasar');
+    return view('datadasar', [
+        $title = "Data Provinsi Pelalawan | Data Dasar"
+    ]);
 });
 
 Route::get('/bantuan', function () {
@@ -38,15 +40,6 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::get('/datalayanan', function () {
     return view('datalayanan');
 });
-
-// Route::get('/datafaskes', function () {
-//     return view('datafaskes');
-// });
-
-// Route::resource('customer', CustomerController::class);
-
-
-
 
 //DATA KECAMATAN
 
@@ -231,4 +224,8 @@ Route::post('/apotik-edit', [ApotikController::class, 'edit'])->name('apotik.edi
 
 // DASHBOARD URL END
 
+// DATADASAR URL START
+
 Route::get('/datadasar', [DataDasarController::class, 'apotikPage'])->name('datadasar.apotik');
+
+// DATADASAR URL END
