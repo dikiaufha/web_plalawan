@@ -6,29 +6,28 @@
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-account-plus"></i>
-            </span> Apotik Page
+            </span> Faskes Page
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Apotik</li>
+                <li class="breadcrumb-item"><a href="/dashboard">Data Dasar</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Faskes</li>
             </ol>
         </nav>
     </div>
     <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <button class="btn btn-inverse-success mb-5" id="addBtn" data-bs-toggle="modal"
-                        data-bs-target="#formModal">Tambah
-                        Data <i class="mdi mdi-plus"></i></button>
-                    <table class="table table-hover data-table" id="data-table">
+        <div class="card col-12">
+            <div class="card-body">
+                <button class="btn btn-inverse-success mb-5" id="addBtn" data-bs-toggle="modal"
+                    data-bs-target="#formModal">Tambah
+                    Data <i class="mdi mdi-plus"></i></button>
+                <div class="table-responsive">
+                    <table class="table table-hover data-table">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Apotik</th>
+                                <th>Nama Faskes</th>
                                 <th>Alamat</th>
-                                <th>Bidang Usaha</th>
-                                <th>Apoteker</th>
                                 <th>Delete</th>
                                 <th>Action</th>
                             </tr>
@@ -52,41 +51,23 @@
                 </div>
                 <div class="modal-body">
                     <form id="formData" name="formData">
-                        <input type="hidden" name="apotik_id" id="apotik_id">
+                        <input type="hidden" name="faskes_id" id="faskes_id">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Apotik</label>
+                                    <label class="col-sm-3 col-form-label">Nama Faskes</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="name_apotik" name="name_apotik" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Alamat Apotik</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="alamat_apotik" name="alamat_apotik"
+                                        <input type="text" class="form-control" id="name_faskes" name="name_faskes"
                                             required />
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Bidang Usaha</label>
+                                    <label class="col-sm-3 col-form-label">Alamat Faskes</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="bidang_usaha" name="bidang_usaha" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Apoteker</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="apoteker" name="apoteker"
+                                        <input type="text" class="form-control" id="alamat_faskes" name="alamat_faskes"
                                             required />
                                     </div>
                                 </div>
@@ -120,7 +101,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('apotik.index') }}",
+                ajax: "{{ route('faskes.index') }}",
                 "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                     if (aData.defunct_ind == "Y") {
                         $(nRow).addClass("table-danger");
@@ -131,20 +112,12 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name_apotik',
-                        name: 'name_apotik'
+                        data: 'name_faskes',
+                        name: 'name_faskes'
                     },
                     {
-                        data: 'alamat_apotik',
-                        name: 'alamat_apotik'
-                    },
-                    {
-                        data: 'bidang_usaha',
-                        name: 'bidang_usaha'
-                    },
-                    {
-                        data: 'apoteker',
-                        name: 'apoteker'
+                        data: 'alamat_faskes',
+                        name: 'alamat_faskes'
                     },
                     {
                         data: function(data) {
@@ -168,27 +141,23 @@
                 $('#saveBtn').val("create-data");
                 $('#apotik_id').val('');
                 $('#formData').trigger("reset");
-                $('#modelHeading').html("Create New Data Apotik");
+                $('#modelHeading').html("Create New Data Faskes");
                 $('#formModel').modal('show');
             });
 
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
-                var apotik_id = $("#apotik_id").val();
-                var name_apotik = $("#name_apotik").val();
-                var alamat_apotik = $("#alamat_apotik").val();
-                var bidang_usaha = $("#bidang_usaha").val();
-                var apoteker = $("#apoteker").val();
+                var faskes_id = $("#faskes_id").val();
+                var name_faskes = $("#name_faskes").val();
+                var alamat_faskes = $("#alamat_faskes").val();
                 var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
                 $.ajax({
-                    url: "{{ route('apotik.store') }}",
+                    url: "{{ route('faskes.store') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id: apotik_id,
-                        name_apotik: name_apotik,
-                        alamat_apotik: alamat_apotik,
-                        bidang_usaha: bidang_usaha,
-                        apoteker: apoteker,
+                        id: faskes_id,
+                        name_faskes: name_faskes,
+                        alamat_faskes: alamat_faskes,
                         defunct_ind: defunct_ind
                     },
                     type: "POST",
@@ -207,24 +176,22 @@
             });
 
             $('body').on('click', '.editData', function() {
-                var apotik_id = $(this).data('id');
+                var faskes_id = $(this).data('id');
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('apotik.edit') }}",
+                    url: "{{ route('faskes.edit') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id: apotik_id
+                        id: faskes_id
                     },
                     dataType: 'json',
                     success: function(data) {
                         $('#modelHeading').html("Edit Product");
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
-                        $('#apotik_id').val(data.id);
-                        $('#name_apotik').val(data.name_apotik);
-                        $('#alamat_apotik').val(data.alamat_apotik);
-                        $('#bidang_usaha').val(data.bidang_usaha);
-                        $('#apoteker').val(data.apoteker);
+                        $('#faskes_id').val(data.id);
+                        $('#name_faskes').val(data.name_faskes);
+                        $('#alamat_faskes').val(data.alamat_faskes);
                         if (data.defunct_ind == "Y") {
                             document.getElementById("defunct_ind").checked = true;
                         } else {

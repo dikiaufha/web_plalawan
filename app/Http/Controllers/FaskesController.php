@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\ApotikModel;
+use App\Models\FaskesModel;
 use DataTables;
 use Alert;
+use Illuminate\Http\Request;
 
-class ApotikController extends Controller
+class FaskesController extends Controller
 {
     public function index(Request $request) {
         if ($request->ajax()) {
 
-            $data = ApotikModel::latest()->get();
+            $data = FaskesModel::latest()->get();
 
             return Datatables::of($data)
                 ->addIndexColumn()
@@ -26,30 +26,28 @@ class ApotikController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('dashboard.components.datadasar.apotik.apotik');
+        return view('dashboard.components.datadasar.faskes.faskes');
     }
 
     public function store(Request $request) {
 
-        $apotik = $request->id;
-        ApotikModel::updateOrCreate([
-            'id' => $apotik
+        $faskes = $request->id;
+        FaskesModel::updateOrCreate([
+            'id' => $faskes
         ],
         [
-            'name_apotik' => $request->name_apotik,
-            'alamat_apotik' => $request->alamat_apotik,
-            'bidang_usaha' => $request->bidang_usaha,
-            'apoteker' => $request->apoteker,
+            'name_faskes' => $request->name_faskes,
+            'alamat_faskes' => $request->alamat_faskes,
             'defunct_ind' => $request->defunct_ind,
         ]);
-        return response()->json($apotik);
+        return response()->json($faskes);
     }
 
     public function edit(Request $request)
     {
         $where = array('id' => $request->id);
-        $apotik  = ApotikModel::where($where)->first();
-        return response()->json($apotik);
+        $faskes  = FaskesModel::where($where)->first();
+        return response()->json($faskes);
         // $apotik = ApotikModel::find($id);
         // return response()->json($apotik);
     }

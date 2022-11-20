@@ -7,6 +7,7 @@ use App\Http\Controllers\LanggamController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\ApotikController;
+use App\Http\Controllers\FaskesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,9 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('/datadasar', function () {
-    return view('datadasar', [
-        $title = "Data Provinsi Pelalawan | Data Dasar"
-    ]);
+    return view('datadasar');
 });
 
 Route::get('/bantuan', function () {
@@ -217,10 +216,13 @@ Route::get('/datanon', function () {
     return view('dataentitas.datanon');
 });
 
-//DASHBOARD URL START
+// DASHBOARD URL START
 
 Route::resource('/apotik', ApotikController::class);
 Route::post('/apotik-edit', [ApotikController::class, 'edit'])->name('apotik.edit');
+//
+Route::resource('/faskes', FaskesController::class);
+Route::post('/faskes-edit', [FaskesController::class, 'edit'])->name('faskes.edit');
 
 // DASHBOARD URL END
 
