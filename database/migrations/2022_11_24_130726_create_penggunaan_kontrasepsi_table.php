@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kecamatan', function (Blueprint $table) {
-            $table->id();
+        Schema::create('penggunaan_kontrasepsi', function (Blueprint $table) {
+            $table->id('id_penggunaan_kontrasepsi');
+            $table->foreignId('id_tahun');
+            $table->foreignId('id_kontrasepsi');
+            $table->string('defunct_ind');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kecamatan');
+        Schema::dropIfExists('penggunaan_kontrasepsi');
     }
 };

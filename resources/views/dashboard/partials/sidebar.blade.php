@@ -21,6 +21,24 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/tahun">
+                <span class="menu-title">Tahun</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/kecamatan">
+                <span class="menu-title">Kecamatan</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/jenis-organisasi">
+                <span class="menu-title">Jenis Organisasi</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
                 aria-controls="general-pages">
                 <span class="menu-title">Data Dasar</span>

@@ -6,12 +6,12 @@
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-account-plus"></i>
-            </span> Faskes Page
+            </span> Tahun Page
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/dashboard">Data Dasar</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Faskes</li>
+                {{-- <li class="breadcrumb-item"><a href="/dashboard">Data Dasar</a></li> --}}
+                <li class="breadcrumb-item active" aria-current="page">Tahun</li>
             </ol>
         </nav>
     </div>
@@ -26,9 +26,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Faskes</th>
-                                <th>Alamat</th>
-                                <th>Delete</th>
+                                <th>Tahun</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,7 +41,7 @@
     {{-- Modal --}}
     <div class="modal fade" id="formModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
         aria-labelledby="formModal" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="modelHeading"></h1>
@@ -51,35 +49,15 @@
                 </div>
                 <div class="modal-body">
                     <form id="formData" name="formData">
-                        <input type="hidden" name="faskes_id" id="faskes_id">
+                        <input type="hidden" name="id_tahun" id="id_tahun">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Faskes</label>
+                                    <label class="col-sm-3 col-form-label">Tahun</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="name_faskes" name="name_faskes"
-                                            required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Alamat Faskes</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="alamat_faskes" name="alamat_faskes"
-                                            required />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row ">
-                                    <label class="col-sm-3 col-form-label">Delete</label>
-                                    <div class="col-sm-9">
-                                        <input type="checkbox" class="form-check-input form-check-danger" value="Y"
-                                            name="defunct_ind" id="defunct_ind">
+                                        <input type="number" min="1900" max="2099" class="form-control"
+                                            id="tahun" name="tahun" required />
                                     </div>
                                 </div>
                             </div>
@@ -101,32 +79,14 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('faskes.index') }}",
-                "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                    if (aData.defunct_ind == "Y") {
-                        $(nRow).addClass("table-danger");
-                    }
-                },
+                ajax: "{{ route('tahun.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name_faskes',
-                        name: 'name_faskes'
-                    },
-                    {
-                        data: 'alamat_faskes',
-                        name: 'alamat_faskes'
-                    },
-                    {
-                        data: function(data) {
-                            if (data.defunct_ind == "Y") {
-                                return '<i class="mdi mdi-check"></i>';
-                            }
-                            return '';
-                        },
-                        name: 'defunct_ind'
+                        data: 'tahun',
+                        name: 'tahun'
                     },
                     {
                         data: 'action',
@@ -139,26 +99,22 @@
 
             $('#addBtn').click(function() {
                 $('#saveBtn').val("create-data");
-                $('#apotik_id').val('');
+                $('#tahun_id').val('');
                 $('#formData').trigger("reset");
-                $('#modelHeading').html("Create New Data Faskes");
+                $('#modelHeading').html("Buat Data Tahun");
                 $('#formModel').modal('show');
             });
 
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
-                var faskes_id = $("#faskes_id").val();
-                var name_faskes = $("#name_faskes").val();
-                var alamat_faskes = $("#alamat_faskes").val();
-                var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
+                var id_tahun = $("#id_tahun").val();
+                var tahun = $("#tahun").val();
                 $.ajax({
-                    url: "{{ route('faskes.store') }}",
+                    url: "{{ route('tahun.store') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id: faskes_id,
-                        name_faskes: name_faskes,
-                        alamat_faskes: alamat_faskes,
-                        defunct_ind: defunct_ind
+                        id_tahun: id_tahun,
+                        tahun: tahun,
                     },
                     type: "POST",
                     success: function(data) {
@@ -176,27 +132,21 @@
             });
 
             $('body').on('click', '.editData', function() {
-                var faskes_id = $(this).data('id');
+                var id_tahun = $(this).data('id_tahun');
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('faskes.edit') }}",
+                    url: "{{ route('tahun.edit') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id: faskes_id
+                        id_tahun: id_tahun
                     },
                     dataType: 'json',
                     success: function(data) {
                         $('#modelHeading').html("Edit Product");
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
-                        $('#faskes_id').val(data.id);
-                        $('#name_faskes').val(data.name_faskes);
-                        $('#alamat_faskes').val(data.alamat_faskes);
-                        if (data.defunct_ind == "Y") {
-                            document.getElementById("defunct_ind").checked = true;
-                        } else {
-                            document.getElementById("defunct_ind").checked = false;
-                        }
+                        $('#id_tahun').val(data.id_tahun);
+                        $('#tahun').val(data.tahun);
                     }
                 });
             });

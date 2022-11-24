@@ -7,7 +7,9 @@ use App\Http\Controllers\LanggamController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\ApotikController;
-use App\Http\Controllers\FaskesController;
+use App\Http\Controllers\TahunController;
+use App\Http\Controllers\JenisOrganisasiController;
+use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -221,8 +223,14 @@ Route::get('/datanon', function () {
 Route::resource('/apotik', ApotikController::class);
 Route::post('/apotik-edit', [ApotikController::class, 'edit'])->name('apotik.edit');
 //
-Route::resource('/faskes', FaskesController::class);
-Route::post('/faskes-edit', [FaskesController::class, 'edit'])->name('faskes.edit');
+Route::resource('/tahun', TahunController::class);
+Route::post('/tahun-edit', [TahunController::class, 'edit'])->name('tahun.edit');
+//
+Route::resource('/kecamatan', KecamatanController::class);
+Route::post('/kecamatan-edit', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
+//
+Route::resource('/jenis-organisasi', JenisOrganisasiController::class);
+Route::post('/jenis-organisasi-edit', [JenisOrganisasiController::class, 'edit'])->name('jenis-organisasi.edit');
 
 // DASHBOARD URL END
 
