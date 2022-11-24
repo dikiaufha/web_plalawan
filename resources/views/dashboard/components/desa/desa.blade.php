@@ -6,12 +6,12 @@
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-account-plus"></i>
-            </span> Jenis Organisasi Page
+            </span> Desa Page
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 {{-- <li class="breadcrumb-item"><a href="/dashboard">Data Jenis Organisasi</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page">Jenis Organisasi</li>
+                <li class="breadcrumb-item active" aria-current="page">Desa</li>
             </ol>
         </nav>
     </div>
@@ -27,6 +27,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Organisasi</th>
+                                <th>Kecamatan</th>
                                 <th>Delete</th>
                                 <th>Action</th>
                             </tr>
@@ -50,18 +51,33 @@
                 </div>
                 <div class="modal-body">
                     <form id="formData" name="formData">
-                        <input type="hidden" name="id_jenis" id="id_jenis">
+                        <input type="hidden" name="id_desa" id="id_desa">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Organisasi</label>
+                                    <label class="col-sm-3 col-form-label">Nama Desa</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama_organisasi" name="nama_organisasi"
+                                        <input type="text" class="form-control" id="nama_desa" name="nama_desa"
                                             required />
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Kecamatan</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="id_kec" name="id_kec">
+                                            <option>Pilih Kecamatan...</option>
+                                            @foreach ($kecamatan as $data)
+                                                <option value="{{ $data->id_kec }}">{{ $data->nama_kecamatan }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row ">
                                     <label class="col-sm-3 col-form-label">Delete</label>
@@ -89,7 +105,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('jenis-organisasi.index') }}",
+                ajax: "{{ route('desa.index') }}",
                 "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                     if (aData.defunct_ind == "Y") {
                         $(nRow).addClass("table-danger");
@@ -100,8 +116,12 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'nama_organisasi',
-                        name: 'nama_organisasi'
+                        data: 'nama_desa',
+                        name: 'nama_desa'
+                    },
+                    {
+                        data: 'nama_kecamatan',
+                        name: 'id_kec'
                     },
                     {
                         data: function(data) {
@@ -125,21 +145,23 @@
                 $('#saveBtn').val("create-data");
                 $('#id_jenis').val('');
                 $('#formData').trigger("reset");
-                $('#modelHeading').html("Create New Data Jenis Organisasi");
+                $('#modelHeading').html("Create New Data Desa");
                 $('#formModel').modal('show');
             });
 
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
-                var id_jenis = $("#id_jenis").val();
-                var nama_organisasi = $("#nama_organisasi").val();
+                var id_desa = $("#id_desa").val();
+                var nama_desa = $("#nama_desa").val();
+                var id_kec = $("#id_kec").val();
                 var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
                 $.ajax({
-                    url: "{{ route('jenis-organisasi.store') }}",
+                    url: "{{ route('desa.store') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id_jenis: id_jenis,
-                        nama_organisasi: nama_organisasi,
+                        id_desa: id_desa,
+                        nama_desa: nama_desa,
+                        id_kec: id_kec,
                         defunct_ind: defunct_ind
                     },
                     type: "POST",
@@ -158,21 +180,22 @@
             });
 
             $('body').on('click', '.editData', function() {
-                var id_jenis = $(this).data('id_jenis');
+                var id_desa = $(this).data('id_desa');
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('jenis-organisasi.edit') }}",
+                    url: "{{ route('desa.edit') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        id_jenis: id_jenis
+                        id_desa: id_desa
                     },
                     dataType: 'json',
                     success: function(data) {
                         $('#modelHeading').html("Edit Product");
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
-                        $('#id_jenis').val(data.id_jenis);
-                        $('#nama_organisasi').val(data.nama_organisasi);
+                        $('#id_desa').val(data.id_desa);
+                        $('#nama_desa').val(data.nama_desa);
+                        $('#id_kec').val(data.id_kec);
                         if (data.defunct_ind == "Y") {
                             document.getElementById("defunct_ind").checked = true;
                         } else {

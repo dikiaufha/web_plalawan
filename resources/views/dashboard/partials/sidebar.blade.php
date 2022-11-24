@@ -39,6 +39,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/desa">
+                <span class="menu-title">Desa</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
                 aria-controls="general-pages">
                 <span class="menu-title">Data Dasar</span>

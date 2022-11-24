@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jenis_organisasi', function (Blueprint $table) {
             $table->id('id_jenis');
-            $table->string('jenis_organisasi');
+            $table->string('nama_organisasi');
             $table->string('defunct_ind');
             $table->timestamps();
         });

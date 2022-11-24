@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\ApotikController;
 use App\Http\Controllers\TahunController;
+use App\Http\Controllers\DesaController;
 use App\Http\Controllers\JenisOrganisasiController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
@@ -231,6 +232,9 @@ Route::post('/kecamatan-edit', [KecamatanController::class, 'edit'])->name('keca
 //
 Route::resource('/jenis-organisasi', JenisOrganisasiController::class);
 Route::post('/jenis-organisasi-edit', [JenisOrganisasiController::class, 'edit'])->name('jenis-organisasi.edit');
+//
+Route::resource('/desa', DesaController::class);
+Route::post('/desa-edit', [DesaController::class, 'edit'])->name('desa.edit');
 
 // DASHBOARD URL END
 

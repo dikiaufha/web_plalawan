@@ -36,7 +36,7 @@ class JenisOrganisasiController extends Controller
             'id_jenis' => $jenis
         ],
         [
-            'jenis_organisasi' => $request->jenis_organisasi,
+            'nama_organisasi' => $request->nama_organisasi,
             'defunct_ind' => $request->defunct_ind,
         ]);
         return response()->json($jenis);
