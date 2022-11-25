@@ -9,6 +9,10 @@ use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\ApotikController;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\DesaController;
+use App\Http\Controllers\KonsentrasiNakesController;
+use App\Http\Controllers\SpesialisDokterController;
+use App\Http\Controllers\PenyakitController;
+use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\JenisOrganisasiController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
@@ -235,6 +239,18 @@ Route::post('/jenis-organisasi-edit', [JenisOrganisasiController::class, 'edit']
 //
 Route::resource('/desa', DesaController::class);
 Route::post('/desa-edit', [DesaController::class, 'edit'])->name('desa.edit');
+//
+Route::resource('/konsentrasi-nakes', KonsentrasiNakesController::class);
+Route::post('/konsentrasi-nakes-edit', [KonsentrasiNakesController::class, 'edit'])->name('konsentrasi-nakes.edit');
+//
+Route::resource('/spesialis-dokter', SpesialisDokterController::class);
+Route::post('/spesialis-dokter-edit', [SpesialisDokterController::class, 'edit'])->name('spesialis-dokter.edit');
+//
+Route::resource('/penyakit', PenyakitController::class);
+Route::post('/penyakit-edit', [PenyakitController::class, 'edit'])->name('penyakit.edit');
+//
+Route::resource('/organisasi', OrganisasiController::class);
+Route::post('/organisasi-edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
 
 // DASHBOARD URL END
 

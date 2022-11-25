@@ -45,6 +45,30 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/konsentrasi-nakes">
+                <span class="menu-title">Konsentrasi Nakes</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/spesialis-dokter">
+                <span class="menu-title">Spesialis Dokter</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/penyakit">
+                <span class="menu-title">Penyakit</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/organisasi">
+                <span class="menu-title">Organisasi</span>
+                <i class="mdi mdi-calendar-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
                 aria-controls="general-pages">
                 <span class="menu-title">Data Dasar</span>
