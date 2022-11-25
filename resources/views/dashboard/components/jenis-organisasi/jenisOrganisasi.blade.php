@@ -5,12 +5,12 @@
     <div class="page-header">
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-account-plus"></i>
+                <i class="mdi mdi-plus"></i>
             </span> Jenis Organisasi Page
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                {{-- <li class="breadcrumb-item"><a href="/dashboard">Data Jenis Organisasi</a></li> --}}
+                <li class="breadcrumb-item"><a href="/dashboard">Data Dasar</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Jenis Organisasi</li>
             </ol>
         </nav>

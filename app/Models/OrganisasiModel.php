@@ -10,11 +10,11 @@ class OrganisasiModel extends Model
     protected $table = 'organisasi';
     protected $primaryKey = 'id_organisasi';
     protected $fillable = [
-        'nama_organisasu',
+        'name_organisasi',
         'id_jenis',
         'kelompok',
         'id_desa',
-        'id_kecamatan',
+        'id_kec',
         'defunct_ind'
     ];
     use HasFactory;

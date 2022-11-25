@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('organisasi', function (Blueprint $table) {
             $table->id('id_organisasi');
-            $table->string('nama_organisasi');
+            $table->string('name_organisasi');
             $table->foreignId('id_jenis');
             $table->string('kelompok');
             $table->foreignId('id_desa');
-            $table->foreignId('id_kecamatan');
+            $table->foreignId('id_kec');
             $table->string('defunct_ind');
             $table->timestamps();
         });

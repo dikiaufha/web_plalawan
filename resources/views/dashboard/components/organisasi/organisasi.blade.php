@@ -61,7 +61,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Organisasi</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama_organisasi" name="nama_organisasi"
+                                        <input type="text" class="form-control" id="name_organisasi" name="name_organisasi"
                                             required />
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'nama_organisasi',
-                        name: 'nama_organisasi'
+                        data: 'name_organisasi',
+                        name: 'name_organisasi'
                     },
                     {
                         data: 'nama_organisasi',
@@ -207,7 +207,7 @@
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
                 var id_organisasi = $("#id_organisasi").val();
-                var nama_organisasi = $("#nama_organisasi").val();
+                var name_organisasi = $("#name_organisasi").val();
                 var id_jenis = $("#id_jenis").val();
                 var kelompok = $("#kelompok").val();
                 var id_desa = $("#id_desa").val();
@@ -218,7 +218,7 @@
                     data: {
                         "_token": "{{ csrf_token() }}",
                         id_organisasi: id_organisasi,
-                        nama_organisasi: nama_organisasi,
+                        name_organisasi: name_organisasi,
                         id_jenis: id_jenis,
                         kelompok: kelompok,
                         id_desa: id_desa,
@@ -255,7 +255,7 @@
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#id_organisasi').val(data.id_organisasi);
-                        $('#nama_organisasi').val(data.nama_organisasi);
+                        $('#name_organisasi').val(data.name_organisasi);
                         $('#id_jenis').val(data.id_jenis);
                         $('#kelompok').val(data.kelompok);
                         $('#id_desa').val(data.id_desa);

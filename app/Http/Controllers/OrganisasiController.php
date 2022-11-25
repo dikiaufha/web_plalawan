@@ -9,13 +9,20 @@ use App\Models\JenisOrganisasiModel;
 use App\Models\DesaModel;
 use DataTables;
 use Alert;
+use Illuminate\Support\Facades\DB;
 
 class OrganisasiController extends Controller
 {
     public function index(Request $request) {
         if ($request->ajax()) {
 
-            $data = OrganisasiModel::latest()->get();
+            $data = DB::table('organisasi')
+            ->join('kecamatan', 'organisasi.id_kec', '=', 'kecamatan.id_kec')
+            ->join('desa', 'organisasi.id_desa', '=', 'desa.id_desa')
+            ->join('jenis_organisasi', 'organisasi.id_jenis', '=', 'jenis_organisasi.id_jenis')
+            ->select('organisasi.*', 'kecamatan.nama_kecamatan', 'desa.nama_desa',  'jenis_organisasi.nama_organisasi')
+            ->latest()
+            ->get();
 
             return Datatables::of($data)
                 ->addIndexColumn()
@@ -43,11 +50,11 @@ class OrganisasiController extends Controller
             'id_organisasi' => $organisasi
         ],
         [
-            'nama_organisasi' => $request->nama_organisasi,
+            'name_organisasi' => $request->name_organisasi,
             'id_jenis' => $request->id_jenis,
             'kelompok' => $request->kelompok,
             'id_desa' => $request->id_desa,
-            'id_kecamatan' => $request->id_kecamatan,
+            'id_kec' => $request->id_kec,
             'defunct_ind' => $request->defunct_ind,
         ]);
         return response()->json($organisasi);
@@ -58,7 +65,5 @@ class OrganisasiController extends Controller
         $where = array('id_organisasi' => $request->id_organisasi);
         $organisasi  = OrganisasiModel::where($where)->first();
         return response()->json($organisasi);
-        // $apotik = ApotikModel::find($id);
-        // return response()->json($apotik);
     }
 }

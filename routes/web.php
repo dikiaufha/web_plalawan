@@ -256,6 +256,6 @@ Route::post('/organisasi-edit', [OrganisasiController::class, 'edit'])->name('or
 
 // DATADASAR URL START
 
-Route::get('/datadasar', [DataDasarController::class, 'apotikPage'])->name('datadasar.apotik');
+Route::get('/datadasar', [DataDasarController::class, 'tablePage']);
 
 // DATADASAR URL END
