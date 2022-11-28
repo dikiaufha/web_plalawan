@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('kondisiaset_pertahun', function (Blueprint $table) {
             $table->id('id_kondisiaset_pertahun');
-            $table->year('tahun');
+            $table->foreignId('id_tahun');
             $table->integer('baik');
             $table->integer('rusak_ringan');
             $table->integer('rusak_berat');

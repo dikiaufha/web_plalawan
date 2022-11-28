@@ -50,5 +50,41 @@
                 <i class="mdi mdi-home-variant menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/jenis-aset">
+                <span class="menu-title">Jenis Aset</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/tahun-aset">
+                <span class="menu-title">Tahun Aset</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/kondisiaset-pertahun">
+                <span class="menu-title">Kondisi Aset Pertahun</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/kartu-keluarga">
+                <span class="menu-title">Kartu Keluarga</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/status-kawin">
+                <span class="menu-title">Status Perkawinan</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/agama">
+                <span class="menu-title">Agama</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>

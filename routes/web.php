@@ -10,10 +10,16 @@ use App\Http\Controllers\ApotikController;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\KonsentrasiNakesController;
+use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\SpesialisDokterController;
 use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\JenisOrganisasiController;
+use App\Http\Controllers\KondisiAsetPertahunController;
+use App\Http\Controllers\JenisAsetController;
+use App\Http\Controllers\StatusKawinController;
+use App\Http\Controllers\AgamaController;
+use App\Http\Controllers\TahunAsetController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
 
@@ -251,6 +257,27 @@ Route::post('/penyakit-edit', [PenyakitController::class, 'edit'])->name('penyak
 //
 Route::resource('/organisasi', OrganisasiController::class);
 Route::post('/organisasi-edit', [OrganisasiController::class, 'edit'])->name('organisasi.edit');
+//
+Route::resource('/jenis-aset', JenisAsetController::class);
+Route::post('/jenis-aset-edit', [JenisAsetController::class, 'edit'])->name('jenis-aset.edit');
+//
+Route::resource('/jenis-aset', JenisAsetController::class);
+Route::post('/jenis-aset-edit', [JenisAsetController::class, 'edit'])->name('jenis-aset.edit');
+//
+Route::resource('/tahun-aset', TahunAsetController::class);
+Route::post('/tahun-aset-edit', [TahunAsetController::class, 'edit'])->name('tahun-aset.edit');
+//
+Route::resource('/kondisiaset-pertahun', KondisiAsetPertahunController::class);
+Route::post('/kondisiaset-pertahun-edit', [KondisiAsetPertahunController::class, 'edit'])->name('kondisiaset-pertahun.edit');
+//
+Route::resource('/kartu-keluarga', KartuKeluargaController::class);
+Route::post('/kartu-keluarga-edit', [KartuKeluargaController::class, 'edit'])->name('kartu-keluarga.edit');
+//
+Route::resource('/status-kawin', StatusKawinController::class);
+Route::post('/status-kawin-edit', [StatusKawinController::class, 'edit'])->name('status-kawin.edit');
+//
+Route::resource('/agama', AgamaController::class);
+Route::post('/agama-edit', [AgamaController::class, 'edit'])->name('agama.edit');
 
 // DASHBOARD URL END
 

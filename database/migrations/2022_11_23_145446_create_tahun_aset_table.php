@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_tahun_aset');
             $table->foreignId('id_organisasi');
             $table->foreignId('id_jenis_aset');
-            $table->year('tahun');
+            $table->foreignId('id_tahun');
             $table->string('defunct_ind');
             $table->timestamps();
         });
