@@ -71,5 +71,17 @@
                 <i class="mdi mdi-home-variant menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/status-dalamkeluarga">
+                <span class="menu-title">Status Dalam Keluarga</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/keluarga">
+                <span class="menu-title">Keluarga</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>

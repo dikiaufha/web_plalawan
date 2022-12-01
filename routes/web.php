@@ -18,7 +18,9 @@ use App\Http\Controllers\JenisOrganisasiController;
 use App\Http\Controllers\KondisiAsetPertahunController;
 use App\Http\Controllers\JenisAsetController;
 use App\Http\Controllers\StatusKawinController;
+use App\Http\Controllers\StatusKeluargaController;
 use App\Http\Controllers\AgamaController;
+use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\TahunAsetController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
@@ -278,6 +280,12 @@ Route::post('/status-kawin-edit', [StatusKawinController::class, 'edit'])->name(
 //
 Route::resource('/agama', AgamaController::class);
 Route::post('/agama-edit', [AgamaController::class, 'edit'])->name('agama.edit');
+//
+Route::resource('/status-dalamkeluarga', StatusKeluargaController::class);
+Route::post('/status-dalamkeluarga-edit', [StatusKeluargaController::class, 'edit'])->name('status-dalamkeluarga.edit');
+//
+Route::resource('/keluarga', KeluargaController::class);
+Route::post('/keluarga-edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
 
 // DASHBOARD URL END
 
