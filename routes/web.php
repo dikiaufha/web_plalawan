@@ -213,6 +213,13 @@ Route::get('/datasebaranpenyakit', function () {
     return view('datalayanan.datasebaranpenyakit');
 });
 
+//LOGIN
+
+Route::get('/login', function () {
+    return view('login.login');
+});
+
+
 
 // DATA ENTITAS
 
@@ -231,6 +238,8 @@ Route::get('/datanakes', function () {
 Route::get('/datanon', function () {
     return view('dataentitas.datanon');
 });
+
+
 
 // DASHBOARD URL START
 

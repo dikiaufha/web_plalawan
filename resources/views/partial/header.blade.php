@@ -13,10 +13,10 @@
           <li class="dropdown"><a href="#"><span>Visualisasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="datadasar">Data Dasar</a></li>
-              <li><a href="datalayanan">Data Layanan</a></li>
+              <!-- <li><a href="datalayanan">Data Layanan</a></li> -->
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Info Data</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- <li class="dropdown"><a href="#"><span>Info Data</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="datakecamatan">Data kecamatan</a></li>
               <li><a href="datadesa">Data Desa</a></li>
@@ -24,9 +24,9 @@
               <li><a href="datakendaraanbermotor">Data Kendaraan Bermotor</a></li>
               <li><a href="datamobil">Data Mobil</a></li> 
             </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="dataentitas">Data Entitas</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
+          </li> -->
+          <!-- <li><a class="nav-link scrollto" href="dataentitas">Data Entitas</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li> -->
           <li><a class="nav-link scrollto text-success fw-semibold" href="bantuan">Bantuan</a></li>
           <li><a class="nav-link scrollto " href="login">Login</a></li>
         </ul>
