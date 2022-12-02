@@ -22,6 +22,7 @@ use App\Http\Controllers\StatusKeluargaController;
 use App\Http\Controllers\AgamaController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\TahunAsetController;
+use App\Http\Controllers\AlatKontrasepsiController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
 
@@ -286,6 +287,9 @@ Route::post('/status-dalamkeluarga-edit', [StatusKeluargaController::class, 'edi
 //
 Route::resource('/keluarga', KeluargaController::class);
 Route::post('/keluarga-edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
+//
+Route::resource('/alat-kontrasepsi', AlatKontrasepsiController::class);
+Route::post('/alat-kontrasepsi-edit', [AlatKontrasepsiController::class, 'edit'])->name('alat-kontrasepsi.edit');
 
 // DASHBOARD URL END
 

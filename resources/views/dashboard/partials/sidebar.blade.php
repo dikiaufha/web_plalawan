@@ -83,5 +83,11 @@
                 <i class="mdi mdi-home-variant menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/alat-kontrasepsi">
+                <span class="menu-title">Alat Kontrasepsi</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>
