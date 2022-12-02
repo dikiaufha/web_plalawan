@@ -89,5 +89,41 @@
                 <i class="mdi mdi-home-variant menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/tenaga-kesehatan">
+                <span class="menu-title">Tenaga Kesehatan</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/bidang-ilmu">
+                <span class="menu-title">Bidang Ilmu</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/asn">
+                <span class="menu-title">ASN</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/penggunaan-obat">
+                <span class="menu-title">Penggunaan Obat</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/penyakit-menonjol">
+                <span class="menu-title">Sepuluh Penyakit Menonjol</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/penggunaan-kontrasepsi">
+                <span class="menu-title">Penggunaan Kontrasepsi</span>
+                <i class="mdi mdi-home-variant menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>

@@ -26,7 +26,7 @@ class AlatKontrasepsiController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('dashboard.components.agama.agama');
+        return view('dashboard.components.alat-kontrasepsi.alatKontrasepsi');
     }
 
     public function store(Request $request) {
