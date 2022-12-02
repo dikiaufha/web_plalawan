@@ -24,6 +24,12 @@ use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\TahunAsetController;
 use App\Http\Controllers\AlatKontrasepsiController;
 use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\TenagaKesehatanController;
+use App\Http\Controllers\BidangIlmuController;
+use App\Http\Controllers\AsnController;
+use App\Http\Controllers\PenggunaanObatController;
+use App\Http\Controllers\PenyakitMenonjolController;
+use App\Http\Controllers\PenggunaanKontrasepsiController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -299,6 +305,24 @@ Route::post('/keluarga-edit', [KeluargaController::class, 'edit'])->name('keluar
 //
 Route::resource('/alat-kontrasepsi', AlatKontrasepsiController::class);
 Route::post('/alat-kontrasepsi-edit', [AlatKontrasepsiController::class, 'edit'])->name('alat-kontrasepsi.edit');
+//
+Route::resource('/tenaga-kesehatan', TenagaKesehatanController::class);
+Route::post('/tenaga-kesehatan-edit', [TenagaKesehatanController::class, 'edit'])->name('tenaga-kesehatan.edit');
+//
+Route::resource('/bidang-ilmu', BidangIlmuController::class);
+Route::post('/bidang-ilmu-edit', [BidangIlmuController::class, 'edit'])->name('bidang-ilmu.edit');
+//
+Route::resource('/asn', AsnController::class);
+Route::post('/asn-edit', [AsnController::class, 'edit'])->name('asn.edit');
+//
+Route::resource('/penggunaan-obat', PenggunaanObatController::class);
+Route::post('/penggunaan-obat-edit', [PenggunaanObatController::class, 'edit'])->name('penggunaan-obat.edit');
+//
+Route::resource('/penyakit-menonjol', PenyakitMenonjolController::class);
+Route::post('/penyakit-menonjol-edit', [PenyakitMenonjolController::class, 'edit'])->name('penyakit-menonjol.edit');
+//
+Route::resource('/penggunaan-kontrasepsi', PenggunaanKontrasepsiController::class);
+Route::post('/penggunaan-kontrasepsi-edit', [PenggunaanKontrasepsiController::class, 'edit'])->name('penggunaan-kontrasepsi.edit');
 
 // DASHBOARD URL END
 
