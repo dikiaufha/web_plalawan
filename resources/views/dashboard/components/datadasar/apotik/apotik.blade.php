@@ -2,45 +2,51 @@
 
 @section('container')
     @include('sweetalert::alert')
-    <div class="page-header">
-        <h3 class="page-title">
-            <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-plus-box"></i>
-            </span> Apotik Page
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/dashboard">Data Dasar</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Apotik</li>
-            </ol>
-        </nav>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Apotik Page</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/dashboard">Data Master</a></li>
+                        <li class="breadcrumb-item active">Apotik</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-    <div class="row">
-        <div class="card col-12">
-            <div class="card-body">
-                <button class="btn btn-inverse-success mb-5" id="addBtn" data-bs-toggle="modal"
-                    data-bs-target="#formModal">Tambah
-                    Data <i class="mdi mdi-plus"></i></button>
-                <div class="table-responsive">
-                    <table class="table table-hover data-table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Apotik</th>
-                                <th>Alamat</th>
-                                <th>Bidang Usaha</th>
-                                <th>Apoteker</th>
-                                <th>Delete</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card col-12">
+                    <div class="card-body">
+                        <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
+                            data-bs-target="#formModal">Tambah
+                            Data <i class="bi bi-plus-lg"></i></button>
+                        <div class="">
+                            <table class="table table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Apotik</th>
+                                        <th>Alamat</th>
+                                        <th>Bidang Usaha</th>
+                                        <th>Apoteker</th>
+                                        <th>Delete</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     {{-- Modal --}}
     <div class="modal fade" id="formModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -48,8 +54,10 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modelHeading"></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title fs-5" id="modelHeading"></h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="formData" name="formData">
@@ -152,7 +160,7 @@
                     {
                         data: function(data) {
                             if (data.defunct_ind == "Y") {
-                                return '<i class="mdi mdi-check"></i>';
+                                return '<i class="bi bi-check-lg"></i>';
                             }
                             return '';
                         },
@@ -220,7 +228,7 @@
                     },
                     dataType: 'json',
                     success: function(data) {
-                        $('#modelHeading').html("Edit Product");
+                        $('#modelHeading').html("Edit Apotik");
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#apotik_id').val(data.id);

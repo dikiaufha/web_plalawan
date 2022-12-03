@@ -2,51 +2,57 @@
 
 @section('container')
     @include('sweetalert::alert')
-    <div class="page-header">
-        <h3 class="page-title">
-            <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-account-plus"></i>
-            </span> Keluarga Page
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {{-- <li class="breadcrumb-item"><a href="/dashboard">Data Jenis Organisasi</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page">Keluarga</li>
-            </ol>
-        </nav>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Keluarga Page</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/dashboard">Data Master</a></li>
+                        <li class="breadcrumb-item active">Keluarga</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-    <div class="row">
-        <div class="card col-12">
-            <div class="card-body">
-                <button class="btn btn-inverse-success mb-5" id="addBtn" data-bs-toggle="modal"
-                    data-bs-target="#formModal">Tambah
-                    Data <i class="mdi mdi-plus"></i></button>
-                <div class="table-responsive">
-                    <table class="table table-hover data-table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NIK</th>
-                                <th>No KK</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Status Perkawinan</th>
-                                <th>Agama</th>
-                                <th>Status Dalam Keluarga</th>
-                                <th>Status JamKesDa</th>
-                                <th>Delete</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card col-12">
+                    <div class="card-body">
+                        <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
+                            data-bs-target="#formModal">Tambah
+                            Data <i class="bi bi-plus-lg"></i></button>
+                        <div class="">
+                            <table class="table table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NIK</th>
+                                        <th>No KK</th>
+                                        <th>Nama</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Status Perkawinan</th>
+                                        <th>Agama</th>
+                                        <th>Status Dalam Keluarga</th>
+                                        <th>Status JamKesDa</th>
+                                        <th>Delete</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     {{-- Modal --}}
     <div class="modal fade" id="formModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -54,8 +60,10 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modelHeading"></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title fs-5" id="modelHeading"></h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="formData" name="formData">
@@ -66,8 +74,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">NIK</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" id="nik" name="nik"
-                                            required />
+                                        <input type="number" class="form-control" id="nik" name="nik" required />
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +82,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">No KK</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" id="no_kk" name="no_kk"
-                                            required />
+                                        <input type="number" class="form-control" id="no_kk" name="no_kk" required />
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +92,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama" name="nama"
-                                            required />
+                                        <input type="text" class="form-control" id="nama" name="nama" required />
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +137,8 @@
                                         <select class="form-control" id="id_status_kawin" name="id_status_kawin">
                                             <option>Pilih Status Perkawinan ...</option>
                                             @foreach ($status_kawin as $data)
-                                                <option value="{{ $data->id_status_kawin }}">{{ $data->status_kawin }}</option>
+                                                <option value="{{ $data->id_status_kawin }}">{{ $data->status_kawin }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -157,10 +163,12 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Status Dalam Keluarga</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" id="id_status_dalamkeluarga" name="id_status_dalamkeluarga">
+                                        <select class="form-control" id="id_status_dalamkeluarga"
+                                            name="id_status_dalamkeluarga">
                                             <option>Pilih Status Dalam Keluarga...</option>
                                             @foreach ($status_dalamkeluarga as $data)
-                                                <option value="{{ $data->id_status_dalamkeluarga }}">{{ $data->status_dalamkeluarga }}</option>
+                                                <option value="{{ $data->id_status_dalamkeluarga }}">
+                                                    {{ $data->status_dalamkeluarga }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -170,8 +178,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Status JAMKESDA</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="status_jamkesda" name="status_jamkesda"
-                                            required />
+                                        <input type="text" class="form-control" id="status_jamkesda"
+                                            name="status_jamkesda" required />
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +265,7 @@
                     {
                         data: function(data) {
                             if (data.defunct_ind == "Y") {
-                                return '<i class="mdi mdi-check"></i>';
+                                return '<i class="bi bi-check-lg"></i>';
                             }
                             return '';
                         },
@@ -337,7 +345,7 @@
                     },
                     dataType: 'json',
                     success: function(data) {
-                        $('#modelHeading').html("Edit Product");
+                        $('#modelHeading').html("Edit Keluarga");
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#id_keluarga').val(data.id_keluarga);

@@ -28,8 +28,8 @@ class TenagaKesehatanController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_nakes="'.$row->id_nakes.'" data-original-title="Edit"data-bs-toggle="modal"
-                    data-bs-target="#formModal" class="btn btn-sm btn-gradient-info btn-icon-text editData">Edit <i
-                    class="mdi mdi-file-check btn-icon-append"></i></a>';
+                    data-bs-target="#formModal" class="btn btn-sm btn-warning btn-icon-text editData">Edit <i
+                    class="bi bi-pencil-square"></i></a>';
 
                     return $btn;
                 })
