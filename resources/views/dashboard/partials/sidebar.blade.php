@@ -209,7 +209,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item fixed-bottom mb-5">
+                <li class="nav-item mb-5">
                     <a href="/logout" class="nav-link text-danger">
                         <i class="bi bi-box-arrow-right"></i>
                         <p class="fw-bold" style="font-weight: bold">

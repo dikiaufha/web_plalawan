@@ -143,7 +143,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="icon-box">
                             <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Faskes</a></h3>
+                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Faskes </a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
@@ -261,7 +261,7 @@
 
 
         <!-- ======= Contact Section ======= -->
-        
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

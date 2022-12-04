@@ -1,18 +1,20 @@
-{{-- Apotik Page Start --}}
+{{-- Faskes Page Start --}}
 
-<div class="modal fade" id="apotikTable" tabindex="-1">
+<div class="modal fade" id="faskesTable" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="modelHeading">Data Apotik</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Faskes</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <table class="table table-hover data-table display compac row-border text-sm-start" id="tableApotik">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Nama Apotik</th>
+                            <th class="text-center">Nama Tempat Usaha</th>
                             <th class="text-center">Alamat</th>
                             <th class="text-center">Bidang Usaha</th>
                             <th class="text-center">Apoteker</th>
@@ -45,35 +47,32 @@
 </script>
 
 
-{{-- Apotik Page End --}}
+{{-- Faskes Page End --}}
 
 
-{{-- Faskes Page Start --}}
+{{-- Nakes Page Start --}}
 
-{{-- <div class="modal fade" id="faskesTable" tabindex="-1">
+<div class="modal fade" id="nakesTable" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="modelHeading">Data Faskes</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Nakes</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableFaskes">
+                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableNakes">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Nama Faskes</th>
-                            <th class="text-center">Alamat</th>
+                            <th class="text-center">Nama Lengkap</th>
+                            <th class="text-center">Konsentrasi Nakes</th>
+                            <th class="text-center">Spesialis Nakes</th>
+                            <th class="text-center">Organisasi Nakes</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($faskes as $data)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $data->name_faskes }}</td>
-                                <td class="text-center">{{ $data->alamat_faskes }}</td>
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -82,12 +81,12 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#tableFaskes').DataTable({
+        $('#tableNakes').DataTable({
             fixedHeader: true,
             paginate: true,
-            searching: true
+            searching: true,
         });
     });
-</script> --}}
+</script>
 
-{{-- Faskes Page End --}}
+{{-- Nakes Page End --}}

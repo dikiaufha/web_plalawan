@@ -88,8 +88,11 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Bidang Usaha</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="bidang_usaha" name="bidang_usaha"
-                                            required />
+                                        <select class="form-control" id="bidang_usaha" name="bidang_usaha">
+                                            <option>Pilih Bidang Usaha...</option>
+                                            <option value="apotik">Apotik</option>
+                                            <option value="toko_obat">Toko Obat</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +153,13 @@
                         name: 'alamat_apotik'
                     },
                     {
-                        data: 'bidang_usaha',
+                        data: function(data) {
+                            if (data.bidang_usaha == "apotik") {
+                                return 'Apotik';
+                            } else if (data.bidang_usaha == "toko_obat") {
+                                return 'Toko Obat';
+                            } return '-';
+                        },
                         name: 'bidang_usaha'
                     },
                     {
