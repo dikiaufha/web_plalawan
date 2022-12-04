@@ -30,7 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Organisasi</th>
+                                        <th>Nama Desa</th>
                                         <th>Kecamatan</th>
                                         <th>Delete</th>
                                         <th>Action</th>

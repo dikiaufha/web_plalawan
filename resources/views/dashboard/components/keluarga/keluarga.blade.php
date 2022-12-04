@@ -235,8 +235,14 @@
                         name: 'nama'
                     },
                     {
-                        data: 'jenis_kelamin',
-                        name: 'jenis_kelamin'
+                        data: function(data) {
+                            if (data.jenis_kelamin == "lakilaki") {
+                                return 'Laki - Laki';
+                            } else if (data.jenis_kelamin == "perempuan") {
+                                return 'Perempuan';
+                            } return '-';
+                        },
+                        name: 'defunct_ind'
                     },
                     {
                         data: 'tempat_lahir',
