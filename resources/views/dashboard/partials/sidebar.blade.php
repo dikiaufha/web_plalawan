@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="assets/img/logo dinas rumah sakit.png" alt="pelalawan" class="brand-image img-circle"
-            style="background-color:white">
+    <a href="/" class="brand-link">
+        <!-- <img src="assets/img/Untitled-1.png" alt="pelalawan" class="brand-image img-circle"
+            style="background-color:white"> -->
         <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
@@ -10,9 +10,9 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="" class="img-circle elevation-2" alt="User Image">
-            </div>
+            <!-- <div class="image">
+                <img src="assets/img/Untitled-1.png" class="img-circle elevation-2" alt="User Image">
+            </div> -->
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
             </div>
