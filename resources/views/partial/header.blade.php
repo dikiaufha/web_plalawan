@@ -2,7 +2,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="/"><img src="assets/img/Untitled-1.png" img src="assets/img/favicon.png" alt="" class="img-fluid">Pelalawan</a></h1>
+        <h1><a href="/"><img src="assets/img/Untitled-1.png" alt="" class="img-fluid">Pelalawan</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>
