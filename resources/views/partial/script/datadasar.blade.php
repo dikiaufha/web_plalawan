@@ -72,6 +72,15 @@
                             <th class="text-center">Organisasi Nakes</th>
                         </tr>
                     </thead>
+                    @foreach ($nakes as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $data->nama_nakes }}</td>
+                                <td class="text-center">{{ $data->nama_konsentrasi }}</td>
+                                <td class="text-center">{{ $data->nama_spesialis }}</td>
+                                <td class="text-center">{{ $data->name_organisasi }}</td>
+                            </tr>
+                        @endforeach
                     <tbody>
                     </tbody>
                 </table>

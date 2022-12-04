@@ -68,7 +68,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Nakes</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama" name="nama"
+                                        <input type="text" class="form-control" id="nama_nakes" name="nama_nakes"
                                             required />
                                     </div>
                                 </div>
@@ -154,15 +154,15 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'nama',
-                        name: 'nama'
+                        data: 'nama_nakes',
+                        name: 'nama_nakes'
                     },
                     {
-                        data: 'nama',
+                        data: 'nama_konsentrasi',
                         name: 'id_konsentrasi'
                     },
                     {
-                        data: 'nama',
+                        data: 'nama_spesialis',
                         name: 'id_spesialis'
                     },
                     {
@@ -198,7 +198,7 @@
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
                 var id_nakes = $("#id_nakes").val();
-                var nama = $("#nama").val();
+                var nama_nakes = $("#nama_nakes").val();
                 var id_konsentrasi = $("#id_konsentrasi").val();
                 var id_spesialis = $("#id_spesialis").val();
                 var id_organisasi = $("#id_organisasi").val();
@@ -208,7 +208,7 @@
                     data: {
                         "_token": "{{ csrf_token() }}",
                         id_nakes: id_nakes,
-                        nama: nama,
+                        nama_nakes: nama_nakes,
                         id_konsentrasi: id_konsentrasi,
                         id_spesialis: id_spesialis,
                         id_organisasi: id_organisasi,
@@ -244,7 +244,7 @@
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#id_nakes').val(data.id_nakes);
-                        $('#nama').val(data.nama);
+                        $('#nama_nakes').val(data.nama_nakes);
                         $('#id_konsentrasi').val(data.id_konsentrasi);
                         $('#id_spesialis').val(data.id_spesialis);
                         $('#id_organisasi').val(data.id_organisasi);

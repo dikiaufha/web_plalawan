@@ -36,7 +36,7 @@ class SpesialisDokterController extends Controller
             'id_spesialis' => $spesialis
         ],
         [
-            'nama' => $request->nama,
+            'nama_spesialis' => $request->nama_spesialis,
             'defunct_ind' => $request->defunct_ind,
         ]);
         return response()->json($spesialis);

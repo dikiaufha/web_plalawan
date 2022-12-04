@@ -10,7 +10,7 @@ class KonsentrasiNakesModel extends Model
     protected $table = 'konsentrasi_nakes';
     protected $primaryKey = 'id_konsentrasi';
     protected $fillable = [
-        'nama',
+        'nama_konsentrasi',
         'defunct_ind'
     ];
     use HasFactory;

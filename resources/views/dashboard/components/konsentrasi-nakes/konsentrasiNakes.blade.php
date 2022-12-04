@@ -65,7 +65,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Konsentrasi</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama" name="nama" required />
+                                        <input type="text" class="form-control" id="nama_konsentrasi" name="nama_konsentrasi" required />
                                     </div>
                                 </div>
                             </div>
@@ -107,8 +107,8 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'nama',
-                        name: 'nama'
+                        data: 'nama_konsentrasi',
+                        name: 'nama_konsentrasi'
                     },
                     {
                         data: function(data) {
@@ -139,14 +139,14 @@
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
                 var id_konsentrasi = $("#id_konsentrasi").val();
-                var nama = $("#nama").val();
+                var nama_konsentrasi = $("#nama_konsentrasi").val();
                 var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
                 $.ajax({
                     url: "{{ route('konsentrasi-nakes.store') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
                         id_konsentrasi: id_konsentrasi,
-                        nama: nama,
+                        nama_konsentrasi: nama_konsentrasi,
                         defunct_ind: defunct_ind
                     },
                     type: "POST",
@@ -179,7 +179,7 @@
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#id_konsentrasi').val(data.id_konsentrasi);
-                        $('#nama').val(data.nama);
+                        $('#nama_konsentrasi').val(data.nama_konsentrasi);
                         if (data.defunct_ind == "Y") {
                             document.getElementById("defunct_ind").checked = true;
                         } else {

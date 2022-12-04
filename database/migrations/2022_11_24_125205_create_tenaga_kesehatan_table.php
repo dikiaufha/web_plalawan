@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tenaga_kesehatan', function (Blueprint $table) {
             $table->id('id_nakes');
-            $table->string('nama');
+            $table->string('nama_nakes');
             $table->foreignId('id_konsentrasi');
             $table->foreignId('id_spesialis');
             $table->foreignId('id_organisasi');

@@ -10,7 +10,7 @@ class TenagaKesehatanModel extends Model
     protected $table = 'tenaga_kesehatan';
     protected $primaryKey = 'id_nakes';
     protected $fillable = [
-        'nama',
+        'nama_nakes',
         'id_konsentrasi',
         'id_spesialis',
         'id_organisasi',

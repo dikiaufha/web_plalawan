@@ -20,7 +20,7 @@ class TenagaKesehatanController extends Controller
             ->join('konsentrasi_nakes', 'tenaga_kesehatan.id_konsentrasi', '=', 'konsentrasi_nakes.id_konsentrasi')
             ->join('spesialis_dokter', 'tenaga_kesehatan.id_spesialis', '=', 'spesialis_dokter.id_spesialis')
             ->join('organisasi', 'tenaga_kesehatan.id_organisasi', '=', 'organisasi.id_organisasi')
-            ->select('tenaga_kesehatan.*', 'konsentrasi_nakes.nama', 'spesialis_dokter.nama',  'organisasi.name_organisasi')
+            ->select('tenaga_kesehatan.*', 'konsentrasi_nakes.nama_konsentrasi', 'spesialis_dokter.nama_spesialis',  'organisasi.name_organisasi')
             ->latest()
             ->get();
 
@@ -50,7 +50,7 @@ class TenagaKesehatanController extends Controller
             'id_nakes' => $nakes
         ],
         [
-            'nama' => $request->nama,
+            'nama_nakes' => $request->nama_nakes,
             'id_konsentrasi' => $request->id_konsentrasi,
             'id_spesialis' => $request->id_spesialis,
             'id_organisasi' => $request->id_organisasi,

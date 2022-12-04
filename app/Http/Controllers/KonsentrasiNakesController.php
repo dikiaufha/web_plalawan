@@ -36,7 +36,7 @@ class KonsentrasiNakesController extends Controller
             'id_konsentrasi' => $konsentrasi
         ],
         [
-            'nama' => $request->nama,
+            'nama_konsentrasi' => $request->nama_konsentrasi,
             'defunct_ind' => $request->defunct_ind,
         ]);
         return response()->json($konsentrasi);

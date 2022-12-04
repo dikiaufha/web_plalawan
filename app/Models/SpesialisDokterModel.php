@@ -10,7 +10,7 @@ class SpesialisDokterModel extends Model
     protected $table = 'spesialis_dokter';
     protected $primaryKey = 'id_spesialis';
     protected $fillable = [
-        'nama',
+        'nama_spesialis',
         'defunct_ind'
     ];
     use HasFactory;

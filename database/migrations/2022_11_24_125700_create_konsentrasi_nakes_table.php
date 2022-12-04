@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('konsentrasi_nakes', function (Blueprint $table) {
             $table->id('id_konsentrasi');
-            $table->string('nama');
+            $table->string('nama_konsentrasi');
             $table->string('defunct_ind');
             $table->timestamps();
         });

@@ -65,7 +65,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Spesialis</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama" name="nama" required />
+                                        <input type="text" class="form-control" id="nama_spesialis" name="nama_spesialis" required />
                                     </div>
                                 </div>
                             </div>
@@ -107,8 +107,8 @@
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'nama',
-                        name: 'nama'
+                        data: 'nama_spesialis',
+                        name: 'nama_spesialis'
                     },
                     {
                         data: function(data) {
@@ -139,14 +139,14 @@
             $('#saveBtn').click(function(e) {
                 e.preventDefault();
                 var id_spesialis = $("#id_spesialis").val();
-                var nama = $("#nama").val();
+                var nama_spesialis = $("#nama_spesialis").val();
                 var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
                 $.ajax({
                     url: "{{ route('spesialis-dokter.store') }}",
                     data: {
                         "_token": "{{ csrf_token() }}",
                         id_spesialis: id_spesialis,
-                        nama: nama,
+                        nama_spesialis: nama_spesialis,
                         defunct_ind: defunct_ind
                     },
                     type: "POST",
@@ -179,7 +179,7 @@
                         $('#saveBtn').val("edit-data");
                         $('#formModel').modal('show');
                         $('#id_spesialis').val(data.id_spesialis);
-                        $('#nama').val(data.nama);
+                        $('#nama_spesialis').val(data.nama_spesialis);
                         if (data.defunct_ind == "Y") {
                             document.getElementById("defunct_ind").checked = true;
                         } else {
