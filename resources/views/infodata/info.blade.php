@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <title>Data Provinsi Pelalawan | Data Dasar</title>
+    <title>Data Provinsi Pelalawan | Info Data</title>
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -135,7 +135,7 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Data Dasar</h2>
+                    <h2>Info Data</h2>
                     <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p> -->
                 </div>
 
@@ -143,20 +143,20 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="icon-box">
                             <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Faskes </a></h3>
+                            <h3><a a href="/datadesa" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Desa </a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Naskes</a></h3>
+                            <h3><a href="/datakendaraanbermotor"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Kendaraan</a></h3>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Organisasi</a></h3>
+                            <h3><a href="/dataserana">Data Serana</a></h3>
                         </div>
                     </div>
 
@@ -169,7 +169,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Inventaris</a></h3>
+                            <h3><a href="/datamobil">Data Mobil</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
@@ -179,49 +179,49 @@
                             Apotik</a></h3>
                         </div>
                     </div> -->
-                    <div class="col-lg-3 col-md-4 mt-4">
+                    <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data
+                            <h3><a href="/datadasar-apotik" data-bs-toggle="modal" data-bs-target="#apotikTable">Data
                             Jamsekda</a></h3>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-database-2-line" style="color: #47aeff;"></i>
                             <h3><a href="datakegiatan">Data Kegiatan</a></h3>
                         </div>
                     </div> -->
-                        <div class="col-lg-3 col-md-4 mt-4">
+                        <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Penyakit</a></h3>
+                            <h3><a href="">Data Penyakit</a></h3>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
                             <h3><a href="tokoalkes">Toko Alkes</a></h3>
                         </div>
                     </div> -->
-                    <div class="col-lg-3 col-md-4 mt-4">
+                    <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Obat</a></h3>
+                            <h3><a href="">Data Obat</a></h3>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
                             <h3><a href="datalaboratorium">Data Laboratorium Kesehatan</a></h3>
                         </div>
                     </div> -->
-                        <div class="col-lg-3 col-md-4 mt-4">
+                        <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Alat Kotrasepsi</a></h3>
+                            <h3><a href="">Data Alat Kotrasepsi</a></h3>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>

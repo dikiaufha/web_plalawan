@@ -122,6 +122,10 @@ Route::get('/kualakampar', function () {
 
 //INFO DATA
 
+Route::get('/info', function () {
+    return view('infodata.info');
+});
+
 Route::get('/datadesa', function () {
     return view('infodata.datadesa');
 });
