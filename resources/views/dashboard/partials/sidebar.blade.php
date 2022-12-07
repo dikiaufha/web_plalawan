@@ -150,7 +150,7 @@
                         <li class="nav-item">
                             <a href="/jenis-aset" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Jenis Aset</p>
+                                <p>Nama Aset</p>
                             </a>
                         </li>
                         <li class="nav-item">

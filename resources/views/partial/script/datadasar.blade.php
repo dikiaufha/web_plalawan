@@ -99,3 +99,61 @@
 </script>
 
 {{-- Nakes Page End --}}
+
+{{-- Organisasi Page Start --}}
+
+<div class="modal fade" id="organisasiTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Organisasi</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableOrganisasi">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Nama Organisasi</th>
+                            <th class="text-center">Jenis Organisasi</th>
+                            <th class="text-center">Kelompok</th>
+                            <th class="text-center">Desa</th>
+                            <th class="text-center">Kecamatan</th>
+                        </tr>
+                    </thead>
+                    @foreach ($organisasi as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $data->name_organisasi }}</td>
+                                <td class="text-center">{{ $data->nama_organisasi }}</td>
+                                <td class="text-center">
+                                    @if( $data->kelompok  == "faskes")
+                                        Faskes
+                                    @elseif ( $data->kelompok == "nonfaskes")
+                                        Non Faskes
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $data->nama_desa }}</td>
+                                <td class="text-center">{{ $data->nama_kecamatan }}</td>
+                            </tr>
+                        @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tableOrganisasi').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Organisasi Page End --}}

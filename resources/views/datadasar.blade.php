@@ -156,7 +156,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Organisasi</a></h3>
+                            <h3><a href="/datadasar-organisasi"  data-bs-toggle="modal" data-bs-target="#organisasiTable">Data Organisasi</a></h3>
                         </div>
                     </div>
 
