@@ -209,6 +209,23 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon bi bi-person-check-fill"></i>
+                        <p>
+                            Authorization
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/user" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>User</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item mb-5">
                     <a href="/logout" class="nav-link text-danger">
                         <i class="bi bi-box-arrow-right"></i>
