@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Jenis Aset Page</h1>
+                    <h1 class="m-0">Nama Aset Page</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,12 +24,12 @@
                     <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
                         data-bs-target="#formModal">Tambah
                         Data <i class="bi bi-plus-lg"></i></button>
-                    <div class="table-responsive">
+                    <div class="">
                         <table class="table table-hover data-table">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Jenis Aset</th>
+                                    <th>Nama Aset</th>
                                     <th>Nama Organisasi</th>
                                     <th>Delete</th>
                                     <th>Action</th>
@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Jenis Aset</label>
+                                    <label class="col-sm-3 col-form-label">Nama Aset</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="nama_aset" name="nama_aset"
                                             required />

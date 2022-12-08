@@ -23,8 +23,15 @@ class DataDasarController extends Controller
         ->latest()
         ->get()
         ->where('defunct_ind', 'N');
+        $organisasi = DB::table('organisasi')
+            ->join('kecamatan', 'organisasi.id_kec', '=', 'kecamatan.id_kec')
+            ->join('desa', 'organisasi.id_desa', '=', 'desa.id_desa')
+            ->join('jenis_organisasi', 'organisasi.id_jenis', '=', 'jenis_organisasi.id_jenis')
+            ->select('organisasi.*', 'kecamatan.nama_kecamatan', 'desa.nama_desa',  'jenis_organisasi.nama_organisasi')
+            ->latest()
+            ->get();
 
-        return view('datadasar', compact('data', 'nakes'));
+        return view('datadasar', compact('data', 'nakes', 'organisasi'));
     }
 
 }

@@ -25,7 +25,7 @@
                         <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
                             data-bs-target="#formModal">Tambah
                             Data <i class="bi bi-plus-lg"></i></button>
-                        <div class="table-responsive">
+                        <div class="">
                             <table class="table table-hover data-table">
                                 <thead>
                                     <tr>
