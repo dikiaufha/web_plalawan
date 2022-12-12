@@ -157,3 +157,143 @@
 </script>
 
 {{-- Organisasi Page End --}}
+
+{{-- Penyakit Page Start --}}
+
+<div class="modal fade" id="penyakitTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Penyakit</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start" id="tablePenyakit">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Penyakit</th>
+                        </tr>
+                    </thead>
+                    @foreach ($penyakit as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $data->tahun }}</td>
+                                <td class="text-center">{{ $data->nama_penyakit }}</td>
+                            </tr>
+                        @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tablePenyakit').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Penyakit Page End --}}
+
+{{-- Obat Page Start --}}
+
+<div class="modal fade" id="obatTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Obat</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableObat">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Obat Paten</th>
+                            <th class="text-center">Obat Generik</th>
+                        </tr>
+                    </thead>
+                    @foreach ($penggunaanObat as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $data->tahun }}</td>
+                                <td class="text-center">{{ $data->obat_paten }}</td>
+                                <td class="text-center">{{ $data->obat_generik }}</td>
+                            </tr>
+                        @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tableObat').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Obat Page End --}}
+
+{{-- Alat Kontrasepsi Page Start --}}
+
+<div class="modal fade" id="kontrasepsiTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Alat Kontrasepsi</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableKontrasepsi">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Alat Kontrasepsi</th>
+                        </tr>
+                    </thead>
+                    @foreach ($kontrasepsi as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $data->tahun }}</td>
+                                <td class="text-center">{{ $data->nama_kontrasepsi }}</td>
+                            </tr>
+                        @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tableKontrasepsi').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Obat Page End --}}

@@ -9,44 +9,38 @@ use Alert;
 
 class UserController extends Controller
 {
-   public function index(Request $request) {
-      if ($request->ajax()) {
-
-          $data = PenyakitModel::latest()->get();
-
-          return Datatables::of($data)
-              ->addIndexColumn()
-              ->addColumn('action', function($row){
-                  $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_penyakit="'.$row->id_penyakit.'" data-original-title="Edit"data-bs-toggle="modal"
-                  data-bs-target="#formModal" class="btn btn-sm btn-warning btn-icon-text editData">Edit <i
-                  class="bi bi-pencil-square"></i></a>';
-
-                  return $btn;
-              })
-              ->rawColumns(['action'])
-              ->make(true);
-      }
-      return view('dashboard.components.penyakit.penyakit');
+   public function index() {
+    return view('dashboard.components.user.user', [
+        'user' => User::all()
+    ]);
   }
 
   public function store(Request $request) {
 
-      $penyakit = $request->id_penyakit;
-      PenyakitModel::updateOrCreate([
-          'id_penyakit' => $penyakit
-      ],
-      [
-          'nama_penyakit' => $request->nama_penyakit,
-          'defunct_ind' => $request->defunct_ind,
-      ]);
-      return response()->json($penyakit);
+    $validatedData = $request->validate([
+        'nama' => 'required|max:255',
+        'role' => 'required',
+        'image' => 'image|file',
+        'email' => 'required|email:dns|max:255|unique:users',
+        'password' => 'required|min:5|max:255'
+    ]);
+
+    if ($request->file('image')) {
+        $validatedData['image'] = $request->file('image')->store('images');
+    }
+
+    $validatedData['password'] = Hash::make($validatedData['password']);
+
+    User::create($validatedData);
+
+    return redirect('/user');
   }
 
   public function edit(Request $request)
   {
-      $where = array('id_penyakit' => $request->id_penyakit);
-      $penyakit  = PenyakitModel::where($where)->first();
-      return response()->json($penyakit);
+      $where = array('id' => $request->id);
+      $user  = UserModel::where($where)->first();
+      return response()->json($user);
       // $apotik = ApotikModel::find($id);
       // return response()->json($apotik);
   }

@@ -195,7 +195,7 @@
                         <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Penyakit</a></h3>
+                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#penyakitTable">Data Penyakit</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
@@ -207,7 +207,7 @@
                     <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Obat</a></h3>
+                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#obatTable">Data Obat</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4">
@@ -219,7 +219,7 @@
                         <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data Alat Kotrasepsi</a></h3>
+                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#kontrasepsiTable">Data Alat Kotrasepsi</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4">

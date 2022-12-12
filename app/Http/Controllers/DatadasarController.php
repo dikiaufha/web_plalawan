@@ -8,6 +8,10 @@ use App\Models\TenagaKesehatanModel;
 use App\Models\KonsentrasiNakesModel;
 use App\Models\SpesialisDokterModel;
 use App\Models\OrganisasiModel;
+use App\Models\PenyakitMenonjolModel;
+use App\Models\TahunModel;
+use App\Models\PenyakitModel;
+use App\Models\PenggunaanObatModel;
 use Illuminate\Support\Facades\DB;
 use DataTables;
 
@@ -29,9 +33,30 @@ class DataDasarController extends Controller
             ->join('jenis_organisasi', 'organisasi.id_jenis', '=', 'jenis_organisasi.id_jenis')
             ->select('organisasi.*', 'kecamatan.nama_kecamatan', 'desa.nama_desa',  'jenis_organisasi.nama_organisasi')
             ->latest()
-            ->get();
+            ->get()
+            ->where('defunct_ind', 'N');
+        $penyakit = DB::table('sepuluh_penyakit_menonjol')
+            ->join('tahun', 'sepuluh_penyakit_menonjol.id_tahun', '=', 'tahun.id_tahun')
+            ->join('penyakit', 'sepuluh_penyakit_menonjol.id_penyakit', '=', 'penyakit.id_penyakit')
+            ->select('sepuluh_penyakit_menonjol.*', 'tahun.tahun', 'penyakit.nama_penyakit')
+            ->latest()
+            ->get()
+            ->where('defunct_ind', 'N');
+        $penggunaanObat = DB::table('penggunaan_obat')
+            ->join('tahun', 'penggunaan_obat.id_tahun', '=', 'tahun.id_tahun')
+            ->select('penggunaan_obat.*', 'tahun.tahun')
+            ->latest()
+            ->get()
+            ->where('defunct_ind', 'N');
+        $kontrasepsi = DB::table('penggunaan_kontrasepsi')
+            ->join('tahun', 'penggunaan_kontrasepsi.id_tahun', '=', 'tahun.id_tahun')
+            ->join('alat_kontrasepsi', 'penggunaan_kontrasepsi.id_kontrasepsi', '=', 'alat_kontrasepsi.id_kontrasepsi')
+            ->select('penggunaan_kontrasepsi.*', 'tahun.tahun', 'alat_kontrasepsi.nama_kontrasepsi')
+            ->latest()
+            ->get()
+            ->where('defunct_ind', 'N');
 
-        return view('datadasar', compact('data', 'nakes', 'organisasi'));
+        return view('datadasar', compact('data', 'nakes', 'organisasi', 'penyakit', 'penggunaanObat', 'kontrasepsi'));
     }
 
 }

@@ -31,6 +31,7 @@ use App\Http\Controllers\PenggunaanObatController;
 use App\Http\Controllers\PenyakitMenonjolController;
 use App\Http\Controllers\PenggunaanKontrasepsiController;
 use App\Http\Controllers\CaptchaServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
