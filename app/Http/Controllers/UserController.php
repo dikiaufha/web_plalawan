@@ -6,42 +6,58 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use DataTables;
 use Alert;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-   public function index() {
-    return view('dashboard.components.user.user', [
-        'user' => User::all()
-    ]);
-  }
-
-  public function store(Request $request) {
-
-    $validatedData = $request->validate([
-        'nama' => 'required|max:255',
-        'role' => 'required',
-        'image' => 'image|file',
-        'email' => 'required|email:dns|max:255|unique:users',
-        'password' => 'required|min:5|max:255'
-    ]);
-
-    if ($request->file('image')) {
-        $validatedData['image'] = $request->file('image')->store('images');
+  public function index()
+    {
+        return view('dashboard.components.user.user');
     }
 
-    $validatedData['password'] = Hash::make($validatedData['password']);
+    public function read()
+    {
+        $data = User::all();
+        return view('dashboard.components.user.read')->with([
+            'data' => $data
+        ]);
+    }
 
-    User::create($validatedData);
+    public function create()
+    {
+        return view('dashboard.components.user.create');
+    }
 
-    return redirect('/user');
-  }
+    public function store(Request $request)
+    {
+        $data['nama'] = $request->nama;
+        $data['role'] = $request->role;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
+        User::insert($data);
+    }
 
-  public function edit(Request $request)
-  {
-      $where = array('id' => $request->id);
-      $user  = UserModel::where($where)->first();
-      return response()->json($user);
-      // $apotik = ApotikModel::find($id);
-      // return response()->json($apotik);
-  }
+    public function show($id)
+    {
+        $data = User::findOrFail($id);
+        return view('dashboard.components.user.edit')->with([
+            'data' => $data
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = User::findOrFail($id);
+        $data->nama = $request->nama;
+        $data->role = $request->role;
+        $data->email = $request->email;
+        $data->password = $data->password;
+        $data->save();
+    }
+
+    public function destroy($id)
+    {
+        $data = User::findOrFail($id);
+        $data->delete();
+    }
 }

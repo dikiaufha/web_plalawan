@@ -34,31 +34,50 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/datadasar', function () {
-    return view('datadasar');
-});
-
-Route::get('/bantuan', function () {
-    return view('bantuan');
-});
-
-Route::get('/datalayanan', function () {
-    return view('datalayanan');
-});
-
-//LOGIN
-
 Route::get('/login', [CaptchaServiceController::class, 'index'])->name('login');
+Route::post('/login', [CaptchaServiceController::class, 'auth']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    });
+});
+
+Route::middleware(['user'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
+
+    Route::get('/datadasar', function () {
+        return view('datadasar');
+    });
+
+    Route::get('/bantuan', function () {
+        return view('bantuan');
+    });
+
+    Route::get('/datalayanan', function () {
+        return view('datalayanan');
+    });
+});
 
 
+Route::middleware(['admin'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
 
+    Route::get('/datadasar', function () {
+        return view('datadasar');
+    });
 
+    Route::get('/bantuan', function () {
+        return view('bantuan');
+    });
 
-// DASHBOARD URL START
+    Route::get('/datalayanan', function () {
+        return view('datalayanan');
+    });
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 Route::resource('/apotik', ApotikController::class);
@@ -135,9 +154,6 @@ Route::post('/penyakit-menonjol-edit', [PenyakitMenonjolController::class, 'edit
 //
 Route::resource('/penggunaan-kontrasepsi', PenggunaanKontrasepsiController::class);
 Route::post('/penggunaan-kontrasepsi-edit', [PenggunaanKontrasepsiController::class, 'edit'])->name('penggunaan-kontrasepsi.edit');
-//
-Route::resource('/user', UserController::class);
-Route::post('/user-edit', [UserController::class, 'edit'])->name('user.edit');
 
 // DASHBOARD URL END
 
@@ -152,3 +168,24 @@ Route::get('/datadasar', [DataDasarController::class, 'tablePage']);
 Route::get('/contact-form', [CaptchaServiceController::class, 'index']);
 Route::get('/reload-captcha', [CaptchaServiceController::class, 'reloadCaptcha']);
 //Captcha URL End
+
+//AUTH Start
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user-read', [UserController::class, 'read']);
+Route::get('/user-create', [UserController::class, 'create']);
+Route::get('/user-store', [UserController::class, 'store']);
+Route::get('/user-show/{id}', [UserController::class, 'show']);
+Route::get('/user-update/{id}', [UserController::class, 'update']);
+Route::get('/user-destroy/{id}', [UserController::class, 'destroy']);
+
+//AUTH End
+
+});
+
+
+
+
+
+
+
