@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Auth;
 
-class isUser
+class userRole
 {
     /**
      * Handle an incoming request.
@@ -16,9 +17,9 @@ class isUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->guest() || auth()->user()->role !== 'user') {
-            abort(403);
+        if(Auth::check() && Auth::user()->role == $role) {
+            return $next($request);
         }
-        return $next($request);
+        return response()->json(["You don't have permission to acces this page"]);
     }
 }

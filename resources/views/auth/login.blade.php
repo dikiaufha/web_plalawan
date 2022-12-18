@@ -17,17 +17,18 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" method="POST" class="sign-in-form">
+                <form action="/login" method="POST" class="sign-in-form">
+                    @csrf
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="email" placeholder="Email" required/>
+                        <input type="email" placeholder="Email" id="email" name="email"  required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required/>
+                        <input type="password" placeholder="Password" id="password" name="password" required/>
                     </div>
-                    <div class="form-group mt-4 mb-4">
+                    {{-- <div class="form-group mt-4 mb-4">
                         <div class="captcha">
                             <span>{!! captcha_img() !!}</span>
                             <button type="button" class="btn btn-info" class="reload" id="reload">
@@ -38,7 +39,7 @@
                     <div class="input-field">
                       <i class="bi bi-badge-cc-fill"></i>
                       <input type="text" placeholder="Enter Captcha" required/>
-                  </div>
+                  </div> --}}
                     <button class="btn btn-primary" style="font-weight: bold">LOGIN</button>
                 </form>
             </div>
@@ -64,15 +65,15 @@
 
     <script src="assets/js/app.js"></script>
     <script type="text/javascript">
-        $('#reload').click(function() {
-            $.ajax({
-                type: 'GET',
-                url: 'reload-captcha',
-                success: function(data) {
-                    $(".captcha span").html(data.captcha);
-                }
-            });
-        });
+        // $('#reload').click(function() {
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: 'reload-captcha',
+        //         success: function(data) {
+        //             $(".captcha span").html(data.captcha);
+        //         }
+        //     });
+        // });
     </script>
 </body>
 

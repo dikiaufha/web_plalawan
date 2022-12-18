@@ -4,7 +4,7 @@
       <div class="logo">
         <h1><a href="/"><img src="assets/img/Untitled-1.png" alt="" class="img-fluid">Pelalawan</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        
+
       </div>
 
       <nav id="navbar" class="navbar">
@@ -22,13 +22,18 @@
               <li><a href="datadesa">Data Desa</a></li>
               <li><a href="dataserana">Data Sarana</a></li>
               <li><a href="datakendaraanbermotor">Data Kendaraan Bermotor</a></li>
-              <li><a href="datamobil">Data Mobil</a></li> 
+              <li><a href="datamobil">Data Mobil</a></li>
             </ul>
           </li> -->
           <!-- <li><a class="nav-link scrollto" href="dataentitas">Data Entitas</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li> -->
           <li><a class="nav-link scrollto text-success fw-semibold" href="bantuan">Bantuan</a></li>
-          <li><a class="nav-link scrollto " href="login">Login</a></li>
+          <li>
+            <form action="/logout" method="POST">
+              @csrf
+              <button type="submit" class="dropdown-item">Logout</button>
+            </form>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
