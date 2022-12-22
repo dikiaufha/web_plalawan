@@ -45,9 +45,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::get('/datadasar', function () {
     return view('datadasar');
