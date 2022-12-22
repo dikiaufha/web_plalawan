@@ -57,9 +57,6 @@ Route::get('/bantuan', function () {
     return view('bantuan');
 });
 
-Route::get('/datalayanan', function () {
-    return view('datalayanan');
-});
 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
