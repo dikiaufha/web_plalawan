@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StatusKeluargaModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class StatusKeluargaController extends Controller
 {
@@ -14,7 +14,7 @@ class StatusKeluargaController extends Controller
 
             $data = StatusKeluargaModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_status_dalamkeluarga="'.$row->id_status_dalamkeluarga.'" data-original-title="Edit"data-bs-toggle="modal"

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BidangIlmuModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class BidangIlmuController extends Controller
 {
@@ -14,7 +14,7 @@ class BidangIlmuController extends Controller
 
             $data = BidangIlmuModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_bidang_ilmu="'.$row->id_bidang_ilmu.'" data-original-title="Edit"data-bs-toggle="modal"

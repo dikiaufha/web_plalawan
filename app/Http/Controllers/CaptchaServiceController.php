@@ -20,20 +20,12 @@ class CaptchaServiceController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            if(auth()->user()->role == "admin") {
-                return redirect()->intended('/dashboard');
-            } else {
-                return redirect()->intended('/');
-            }
+
+            return redirect()->intended('home');
 
         }
 
         Alert::error('Error', 'Login Failed!!');
-
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/dashboard');
-        // }
         return back();
     }
 

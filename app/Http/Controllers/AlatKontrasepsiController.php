@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AlatKontrasepsiModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class AlatKontrasepsiController extends Controller
 {
@@ -14,7 +14,7 @@ class AlatKontrasepsiController extends Controller
 
             $data = AlatKontrasepsiModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_kontrasepsi="'.$row->id_kontrasepsi.'" data-original-title="Edit"data-bs-toggle="modal"

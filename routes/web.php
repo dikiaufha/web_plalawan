@@ -1,9 +1,6 @@
 <?php
 
 
-// use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\DatafaskesController;
-use App\Http\Controllers\LanggamController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\ApotikController;
@@ -38,25 +35,25 @@ Route::get('/login', [CaptchaServiceController::class, 'index'])->middleware('gu
 Route::post('/logout', [CaptchaServiceController::class, 'logout']);
 Route::post('/login', [CaptchaServiceController::class, 'auth']);
 
-Route::middleware(['auth', 'userRole:user'])->group(function() {
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+
+
+    Route::get('/datadasar', function () {
+        return view('datadasar');
+    });
+
+    Route::get('/bantuan', function () {
+        return view('bantuan');
+    });
 
 });
-Route::get('/', function () {
-    return view('home');
-});
 
-
-Route::get('/datadasar', function () {
-    return view('datadasar');
-});
-
-Route::get('/bantuan', function () {
-    return view('bantuan');
-});
-
-
-
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('/apotik', ApotikController::class);
     Route::post('/apotik-edit', [ApotikController::class, 'edit'])->name('apotik.edit');
@@ -158,6 +155,11 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
     Route::get('/user-destroy/{id}', [UserController::class, 'destroy']);
 
     //AUTH End
+
+});
+
+
+
 
 
 

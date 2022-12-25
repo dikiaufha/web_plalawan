@@ -7,9 +7,9 @@ use App\Models\KeluargaModel;
 use App\Models\StatusKawinModel;
 use App\Models\AgamaModel;
 use App\Models\StatusKeluargaModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class KeluargaController extends Controller
 {
@@ -25,7 +25,7 @@ class KeluargaController extends Controller
             ->get();
 
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_keluarga="'.$row->id_keluarga.'" data-original-title="Edit"data-bs-toggle="modal"

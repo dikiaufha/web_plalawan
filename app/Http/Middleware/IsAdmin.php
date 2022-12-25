@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
 
-class userRole
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,9 +16,9 @@ class userRole
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->role == $role) {
-            return $next($request);
+        if (auth()->guest() || auth()->user()->role !== 'admin') {
+            abort(403);
         }
-        return response()->json(["You don't have permission to acces this page"]);
+        return $next($request);
     }
 }

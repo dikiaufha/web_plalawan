@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KonsentrasiNakesModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class KonsentrasiNakesController extends Controller
 {
@@ -14,7 +14,7 @@ class KonsentrasiNakesController extends Controller
 
             $data = KonsentrasiNakesModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_konsentrasi="'.$row->id_konsentrasi.'" data-original-title="Edit"data-bs-toggle="modal"

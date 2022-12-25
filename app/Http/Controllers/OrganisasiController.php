@@ -7,9 +7,9 @@ use App\Models\OrganisasiModel;
 use App\Models\KecamatanModel;
 use App\Models\JenisOrganisasiModel;
 use App\Models\DesaModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class OrganisasiController extends Controller
 {
@@ -24,7 +24,7 @@ class OrganisasiController extends Controller
             ->latest()
             ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_organisasi="'.$row->id_organisasi.'" data-original-title="Edit"data-bs-toggle="modal"

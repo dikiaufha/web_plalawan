@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TahunModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class TahunController extends Controller
 {
@@ -14,7 +14,7 @@ class TahunController extends Controller
 
             $data = TahunModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_tahun="'.$row->id_tahun.'" data-original-title="Edit"data-bs-toggle="modal"

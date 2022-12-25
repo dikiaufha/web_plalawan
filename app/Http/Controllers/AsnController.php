@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\AsnModel;
 use App\Models\BidangIlmuModel;
 use App\Models\OrganisasiModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class AsnController extends Controller
 {
@@ -22,7 +22,7 @@ class AsnController extends Controller
             ->latest()
             ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_asn="'.$row->id_asn.'" data-original-title="Edit"data-bs-toggle="modal"

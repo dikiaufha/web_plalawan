@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AgamaModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class AgamaController extends Controller
 {
@@ -14,7 +14,7 @@ class AgamaController extends Controller
 
             $data = AgamaModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_agama="'.$row->id_agama.'" data-original-title="Edit"data-bs-toggle="modal"

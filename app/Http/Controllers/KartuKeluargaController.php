@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KartuKeluargaModel;
 use App\Models\DesaModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class KartuKeluargaController extends Controller
 {
@@ -20,7 +20,7 @@ class KartuKeluargaController extends Controller
                     ->latest()
                     ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_kartu_keluarga="'.$row->id_kartu_keluarga.'" data-original-title="Edit"data-bs-toggle="modal"

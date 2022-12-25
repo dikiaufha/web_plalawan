@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PenggunaanObatModel;
 use App\Models\TahunModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class PenggunaanObatController extends Controller
 {
@@ -20,7 +20,7 @@ class PenggunaanObatController extends Controller
             ->latest()
             ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_penggunaan_obat="'.$row->id_penggunaan_obat.'" data-original-title="Edit"data-bs-toggle="modal"

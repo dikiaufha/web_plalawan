@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SpesialisDokterModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class SpesialisDokterController extends Controller
 {
@@ -14,7 +14,7 @@ class SpesialisDokterController extends Controller
 
             $data = SpesialisDokterModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_spesialis="'.$row->id_spesialis.'" data-original-title="Edit"data-bs-toggle="modal"

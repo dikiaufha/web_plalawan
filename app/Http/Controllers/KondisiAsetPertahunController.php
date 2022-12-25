@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KondisiAsetPertahunModel;
 use App\Models\TahunModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class KondisiAsetPertahunController extends Controller
 {
@@ -20,7 +20,7 @@ class KondisiAsetPertahunController extends Controller
                     ->latest()
                     ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_kondisiaset_pertahun="'.$row->id_kondisiaset_pertahun.'" data-original-title="Edit"data-bs-toggle="modal"

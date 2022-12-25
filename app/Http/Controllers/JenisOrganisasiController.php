@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JenisOrganisasiModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class JenisOrganisasiController extends Controller
 {
@@ -14,7 +14,7 @@ class JenisOrganisasiController extends Controller
 
             $data = JenisOrganisasiModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_jenis="'.$row->id_jenis.'" data-original-title="Edit"data-bs-toggle="modal"

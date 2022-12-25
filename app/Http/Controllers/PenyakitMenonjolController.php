@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\PenyakitMenonjolModel;
 use App\Models\TahunModel;
 use App\Models\PenyakitModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class PenyakitMenonjolController extends Controller
 {
@@ -22,7 +22,7 @@ class PenyakitMenonjolController extends Controller
             ->latest()
             ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_penyakit_menonjol="'.$row->id_penyakit_menonjol.'" data-original-title="Edit"data-bs-toggle="modal"

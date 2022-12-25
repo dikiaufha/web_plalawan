@@ -7,9 +7,9 @@ use App\Models\TenagaKesehatanModel;
 use App\Models\KonsentrasiNakesModel;
 use App\Models\SpesialisDokterModel;
 use App\Models\OrganisasiModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class TenagaKesehatanController extends Controller
 {
@@ -24,7 +24,7 @@ class TenagaKesehatanController extends Controller
             ->latest()
             ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_nakes="'.$row->id_nakes.'" data-original-title="Edit"data-bs-toggle="modal"

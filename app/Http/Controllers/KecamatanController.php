@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KecamatanModel;
-use DataTables;
 use Alert;
+use Yajra\DataTables\DataTables;
 
 class KecamatanController extends Controller
 {
@@ -14,7 +14,7 @@ class KecamatanController extends Controller
 
             $data = KecamatanModel::latest()->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_kec="'.$row->id_kec.'" data-original-title="Edit"data-bs-toggle="modal"

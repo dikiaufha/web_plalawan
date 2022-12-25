@@ -7,9 +7,9 @@ use App\Models\TahunAsetModel;
 use App\Models\OrganisasiModel;
 use App\Models\JenisAsetModel;
 use App\Models\TahunModel;
-use DataTables;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class TahunAsetController extends Controller
 {
@@ -24,7 +24,7 @@ class TahunAsetController extends Controller
                     ->latest()
                     ->get();
 
-            return Datatables::of($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id_tahun_aset="'.$row->id_tahun_aset.'" data-original-title="Edit"data-bs-toggle="modal"
