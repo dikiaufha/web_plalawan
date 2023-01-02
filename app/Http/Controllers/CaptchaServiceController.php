@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\TryCatch;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CaptchaServiceController extends Controller
@@ -13,18 +15,22 @@ class CaptchaServiceController extends Controller
     }
 
     public function auth(Request $request) {
-        $credentials = $request->validate([
+        $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',
+            'captcha' => 'required|captcha'
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        $credentials = $request->only('email', 'password');
+        if ( captcha_check($request->captcha) == false ) {
+            Alert::error('Error', 'Captcha Failed!!');
+            return back();
+         }
 
-            return redirect()->intended('home');
-
-        }
-
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->intended('home');
+            }
         Alert::error('Error', 'Login Failed!!');
         return back();
     }
@@ -39,6 +45,6 @@ class CaptchaServiceController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 }

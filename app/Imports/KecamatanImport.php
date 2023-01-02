@@ -15,7 +15,12 @@ class KecamatanImport implements ToModel
     public function model(array $row)
     {
         return new KecamatanModel([
-            //
+            'puskesmas' => $row['puskesmas'],
+            'lakilaki' => $row['laki-laki'],
+            'perempuan' => $row['perempuan'],
+            'total' => $row['l+p'],
+            'rumah_tangga' => $row['rumah tangga'],
+            'luas_wilayah' => $row['luas wilayah'],
         ]);
     }
 }

@@ -73,19 +73,50 @@
                                     <div class="row">
                                         <div class="card col-12">
                                             <div class="card-body">
-                                                <div class="mb-5">
-                                                    <button class="btn btn-success" id="importBtn" data-bs-toggle="modal"
+                                                <div class="mb-5 d-flex justify-content-between col-12">
+                                                    <div class="col-6">
+                                                        <button class="btn btn-success" id="importBtn" data-bs-toggle="modal"
                                                         data-bs-target="#importModal">Import</button>
-                                                    <a href="#" class="btn btn-primary">Export</a>
+                                                        <a href="#" class="btn btn-primary">Export</a>
+                                                    </div>
+                                                    <div class="col-6 d-flex align-items-end flex-column">
+                                                        <div class="nav-item dropdown">
+                                                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                                              <span class="badge badge-warning"><i class="bi bi-info-lg"></i></span>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                                              <a href="#" class="dropdown-item">
+                                                                <!-- Message Start -->
+                                                                <div class="media">
+                                                                  <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                                                  <div class="media-body">
+                                                                    <h3 class="dropdown-item-title">
+                                                                      Brad Diesel
+                                                                      <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                                                    </h3>
+                                                                    <p class="text-sm">Call me whenever you can
+
+                                                                    </p>
+                                                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                                                  </div>
+                                                                </div>
+                                                                <!-- Message End -->
+                                                              </a>
+                                                            </div>
+                                                          </div>
+                                                    </div>
                                                 </div>
                                                 <div class="mb-5">
-                                                    <table class="table table-hover data-table">
+                                                    <table class="table table-hover">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
-                                                                <th>Nama Kecamatan</th>
-                                                                <th>Delete</th>
-                                                                <th>Action</th>
+                                                                <th>Puskesmas</th>
+                                                                <th>Laki - Laki</th>
+                                                                <th>Perempuan</th>
+                                                                <th>Total</th>
+                                                                <th>Rumah Tangga</th>
+                                                                <th>Luas Wilayah</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -164,9 +195,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formData" name="formData">
+                    <form id="formData" action="{{ route('import.kecamatan') }}" method="POST" enctype="multipart/form-data" name="formData">
                         @csrf
-                        <input type="file">
+                        <input type="file" name="kecamatan">
                     </form>
                 </div>
                 <div class="modal-footer">

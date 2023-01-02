@@ -31,7 +31,7 @@ use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', [CaptchaServiceController::class, 'index'])->middleware('guest')->name('login');
+Route::get('/', [CaptchaServiceController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/logout', [CaptchaServiceController::class, 'logout']);
 Route::post('/login', [CaptchaServiceController::class, 'auth']);
 
@@ -157,6 +157,11 @@ Route::middleware(['admin'])->group(function () {
     //AUTH End
 
 });
+
+//* Import & Export Excel
+
+Route::post('/import-kecamatan', [KecamatanExcelController::class, 'import'])->name('import.kecamatan');
+
 
 
 
