@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DesaExcelModel;
 use Illuminate\Http\Request;
 use App\Models\DesaModel;
 use App\Models\KecamatanModel;
@@ -12,6 +13,7 @@ use Yajra\DataTables\DataTables;
 class DesaController extends Controller
 {
     public function index(Request $request) {
+
         if ($request->ajax()) {
 
             $data = DB::table('desa')
@@ -33,7 +35,8 @@ class DesaController extends Controller
                 ->make(true);
         }
         return view('dashboard.components.desa.desa',[
-            'kecamatan' => KecamatanModel::all()->where('defunct_ind', 'N')
+            'kecamatan' => KecamatanModel::all()->where('defunct_ind', 'N'),
+            'data_excel' => DesaExcelModel::all()
         ]);
     }
 

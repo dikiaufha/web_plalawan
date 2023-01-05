@@ -73,53 +73,40 @@
                                     <div class="row">
                                         <div class="card col-12">
                                             <div class="card-body">
-                                                <div class="mb-5 d-flex justify-content-between col-12">
-                                                    <div class="col-6">
-                                                        <button class="btn btn-success" id="importBtn" data-bs-toggle="modal"
-                                                        data-bs-target="#importModal">Import</button>
-                                                        <a href="#" class="btn btn-primary">Export</a>
-                                                    </div>
-                                                    <div class="col-6 d-flex align-items-end flex-column">
-                                                        <div class="nav-item dropdown">
-                                                            <a class="nav-link" data-toggle="dropdown" href="#">
-                                                              <span class="badge badge-warning"><i class="bi bi-info-lg"></i></span>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                                              <a href="#" class="dropdown-item">
-                                                                <!-- Message Start -->
-                                                                <div class="media">
-                                                                  <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                                                  <div class="media-body">
-                                                                    <h3 class="dropdown-item-title">
-                                                                      Brad Diesel
-                                                                      <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                                                    </h3>
-                                                                    <p class="text-sm">Call me whenever you can
-
-                                                                    </p>
-                                                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                                                  </div>
-                                                                </div>
-                                                                <!-- Message End -->
-                                                              </a>
-                                                            </div>
-                                                          </div>
+                                                <div class="mb-4 row">
+                                                    <div class="col-md-6" style="height: 40px">
+                                                        <button class="btn btn-primary" id="importBtn"
+                                                            data-bs-toggle="modal" data-bs-target="#importModal">Import
+                                                        </button>
+                                                        <a href="{{ route('export.kecamatan') }}"
+                                                            class="btn btn-secondary">Export</a>
                                                     </div>
                                                 </div>
                                                 <div class="mb-5">
-                                                    <table class="table table-hover">
+                                                    <table class="table table-hover datatable-excel">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Puskesmas</th>
                                                                 <th>Laki - Laki</th>
                                                                 <th>Perempuan</th>
-                                                                <th>Total</th>
+                                                                <th>L + P</th>
                                                                 <th>Rumah Tangga</th>
                                                                 <th>Luas Wilayah</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @foreach ($data_excel as $data)
+                                                                <tr>
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $data->puskesmas }}</td>
+                                                                    <td>{{ number_format($data->lakilaki, 0) }}</td>
+                                                                    <td>{{ number_format($data->perempuan, 0) }}</td>
+                                                                    <td>{{ number_format($data->total, 0) }}</td>
+                                                                    <td>{{ number_format($data->rumah_tangga, 0) }}</td>
+                                                                    <td>{{ number_format($data->luas_wilayah, 0) }}</td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -157,8 +144,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nama Kecamatan</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama_kecamatan" name="nama_kecamatan"
-                                            required />
+                                        <input type="text" class="form-control" id="nama_kecamatan"
+                                            name="nama_kecamatan" required />
                                     </div>
                                 </div>
                             </div>
@@ -195,23 +182,113 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formData" action="{{ route('import.kecamatan') }}" method="POST" enctype="multipart/form-data" name="formData">
+                    <form action="{{ route('import.kecamatan') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="kecamatan">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary modal-close"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal Input Excel Manual
+    <div class="modal fade" id="excelModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        aria-labelledby="formModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="modelHeading"></h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formDataExcel" name="formDataExcel">
+                        <input type="hidden" name="id_kecamatan_excel" id="id_kecamatan_excel">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Puskesmas</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="puskesmas" name="puskesmas"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Laki - Laki</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="lakilaki" name="lakilaki"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Perempuan</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="perempuan" name="perempuan"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Rumah Tangga</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="rumah_tangga" name="rumah_tangga"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Luas Wilayah</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="luas_wilayah" name="luas_wilayah"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row ">
+                                    <label class="col-sm-3 col-form-label">Delete</label>
+                                    <div class="col-sm-9">
+                                        <input type="checkbox" class="form-check-input form-check-danger" value="Y"
+                                            name="defunct_ind" id="defunct_ind">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary modal-close" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="saveBtn">Import</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn">Save Data</button>
                 </div>
 
             </div>
         </div>
-    </div>
+    </div> --}}
     @include('dashboard.path.jquery')
 
     <script>
+        $(document).ready(function() {
+            $('.datatable-excel').DataTable();
+        });
         $(function() {
+            //! Jquery Kecamatan
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
@@ -307,6 +384,8 @@
                     }
                 });
             });
+
+
         });
     </script>
 @endsection

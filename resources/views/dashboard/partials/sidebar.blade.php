@@ -227,12 +227,15 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-5">
-                    <a href="/logout" class="nav-link text-danger">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <p class="fw-bold" style="font-weight: bold">
-                            Logout
-                        </p>
-                    </a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" class="nav-link text-danger">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <p class="fw-bold" style="font-weight: bold">
+                                Logout
+                            </p>
+                        </a>
+                    </form>
                 </li>
             </ul>
         </nav>

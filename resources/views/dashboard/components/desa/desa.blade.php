@@ -17,34 +17,110 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="card col-12">
-                    <div class="card-body">
-                        <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
-                            data-bs-target="#formModal">Tambah
-                            Data <i class="bi bi-plus-lg"></i></button>
-                        <div class="">
-                            <table class="table table-hover data-table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Desa</th>
-                                        <th>Kecamatan</th>
-                                        <th>Delete</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+    <div class="row">
+        <div class="col-6 col-sm-12">
+            <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header p-0 border-bottom-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill"
+                                href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home"
+                                aria-selected="true">Manual</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill"
+                                href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile"
+                                aria-selected="false">Import Excel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
+                            aria-labelledby="custom-tabs-four-home-tab">
+                            <section class="content">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="card col-12">
+                                            <div class="card-body">
+                                                <button class="btn btn-success mb-5" id="addBtn" data-bs-toggle="modal"
+                                                    data-bs-target="#formModal">Tambah
+                                                    Data <i class="bi bi-plus-lg"></i></button>
+                                                <div class="">
+                                                    <table class="table table-hover data-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Nama Desa</th>
+                                                                <th>Kecamatan</th>
+                                                                <th>Delete</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
+                            aria-labelledby="custom-tabs-four-profile-tab">
+                            <section class="content">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="card col-12">
+                                            <div class="card-body">
+                                                <div class="mb-4 row">
+                                                    <div class="col-md-6" style="height: 40px">
+                                                        <button class="btn btn-primary" id="importBtn"
+                                                            data-bs-toggle="modal" data-bs-target="#importModal">Import
+                                                        </button>
+                                                        <a href="{{ route('export.desa') }}"
+                                                            class="btn btn-secondary">Export</a>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-5">
+                                                    <table class="table table-hover datatable-excel">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Desa</th>
+                                                                <th>Laki - Laki</th>
+                                                                <th>Perempuan</th>
+                                                                <th>L + P</th>
+                                                                <th>Rumah Tangga</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($data_excel as $data)
+                                                                <tr>
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $data->desa }}</td>
+                                                                    <td>{{ number_format($data->lakilaki, 0) }}</td>
+                                                                    <td>{{ number_format($data->perempuan, 0) }}</td>
+                                                                    <td>{{ number_format($data->total, 0) }}</td>
+                                                                    <td>{{ number_format($data->rumah_tangga, 0) }}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
+                <!-- /.card -->
             </div>
         </div>
-    </section>
+    </div>
 
     {{-- Modal --}}
     <div class="modal fade" id="formModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -106,9 +182,38 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal Import --}}
+    <div class="modal fade" id="importModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        aria-labelledby="formModal" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="modelHeading">Import Excel</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('import.desa') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="desa">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary modal-close"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     @include('dashboard.path.jquery')
 
     <script>
+        $(document).ready(function() {
+            $('.datatable-excel').DataTable();
+        });
         $(function() {
             var table = $('.data-table').DataTable({
                 processing: true,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KecamatanExcelModel;
 use Illuminate\Http\Request;
 use App\Models\KecamatanModel;
 use Alert;
@@ -10,6 +11,8 @@ use Yajra\DataTables\DataTables;
 class KecamatanController extends Controller
 {
     public function index(Request $request) {
+
+        $data_excel = KecamatanExcelModel::all();
         if ($request->ajax()) {
 
             $data = KecamatanModel::latest()->get();
@@ -26,7 +29,7 @@ class KecamatanController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('dashboard.components.kecamatan.kecamatan');
+        return view('dashboard.components.kecamatan.kecamatan', compact('data_excel'));
     }
 
     public function store(Request $request) {

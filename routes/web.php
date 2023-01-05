@@ -29,6 +29,8 @@ use App\Http\Controllers\PenyakitMenonjolController;
 use App\Http\Controllers\PenggunaanKontrasepsiController;
 use App\Http\Controllers\CaptchaServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KecamatanExcelController;
+use App\Http\Controllers\DesaExcelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CaptchaServiceController::class, 'index'])->middleware('guest')->name('login');
@@ -130,14 +132,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/penggunaan-kontrasepsi', PenggunaanKontrasepsiController::class);
     Route::post('/penggunaan-kontrasepsi-edit', [PenggunaanKontrasepsiController::class, 'edit'])->name('penggunaan-kontrasepsi.edit');
 
-    // DASHBOARD URL END
-
-    // DATADASAR URL START
-
     Route::get('/datadasar', [DataDasarController::class, 'tablePage']);
-
-    // DATADASAR URL END
-
 
     //Captcha URL Start
     Route::get('/contact-form', [CaptchaServiceController::class, 'index']);
@@ -156,11 +151,16 @@ Route::middleware(['admin'])->group(function () {
 
     //AUTH End
 
+
 });
 
 //* Import & Export Excel
 
 Route::post('/import-kecamatan', [KecamatanExcelController::class, 'import'])->name('import.kecamatan');
+Route::get('/export-kecamatan', [KecamatanExcelController::class, 'export'])->name('export.kecamatan');
+
+Route::post('/import-desa', [DesaExcelController::class, 'import'])->name('import.desa');
+Route::get('/export-desa', [DesaExcelController::class, 'export'])->name('export.desa');
 
 
 

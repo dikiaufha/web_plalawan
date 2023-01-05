@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KecamatanExcelModel extends Model
+class DesaExcelModel extends Model
 {
-    protected $table = 'kecamatan_excel';
-    protected $primaryKey = 'id_kecamatan_excel';
+    protected $table = 'desa_excel';
+    protected $primaryKey = 'id_desa_excel';
     protected $fillable = [
-        'puskesmas',
+        'desa',
         'lakilaki',
         'perempuan',
         'total',
         'rumah_tangga',
-        'luas_wilayah',
+        'defunct_ind',
     ];
     use HasFactory;
 }
