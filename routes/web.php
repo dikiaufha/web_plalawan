@@ -150,7 +150,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/user-destroy/{id}', [UserController::class, 'destroy']);
 
     //AUTH End
-
+    Route::get('/kecamatan-index', [KecamatanController::class, 'indexExcel'])->name('kecamatan.excel.index');
+    Route::post('/kecamatan-create', [KecamatanController::class, 'createExcel'])->name('kecamatan.excel.create');
+    Route::post('/kecamatan-update', [KecamatanController::class, 'updateExcel'])->name('kecamatan.excel.update');
 
 });
 

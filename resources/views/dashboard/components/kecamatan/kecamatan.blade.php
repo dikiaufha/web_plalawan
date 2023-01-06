@@ -75,6 +75,8 @@
                                             <div class="card-body">
                                                 <div class="mb-4 row">
                                                     <div class="col-md-6" style="height: 40px">
+                                                        <button class="btn btn-success" id="btnExcel">Tambah
+                                                            Data <i class="bi bi-plus-lg"></i></button>
                                                         <button class="btn btn-primary" id="importBtn"
                                                             data-bs-toggle="modal" data-bs-target="#importModal">Import
                                                         </button>
@@ -93,10 +95,12 @@
                                                                 <th>L + P</th>
                                                                 <th>Rumah Tangga</th>
                                                                 <th>Luas Wilayah</th>
+                                                                <th>Delete</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($data_excel as $data)
+                                                            {{-- @foreach ($data_excel as $data)
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
                                                                     <td>{{ $data->puskesmas }}</td>
@@ -105,8 +109,13 @@
                                                                     <td>{{ number_format($data->total, 0) }}</td>
                                                                     <td>{{ number_format($data->rumah_tangga, 0) }}</td>
                                                                     <td>{{ number_format($data->luas_wilayah, 0) }}</td>
+                                                                    <td>
+                                                                        <a href="" data-toggle="tooltip"  data-id_kecamatan_excel="'.$row->id_kecamatan_excel.'" data-original-title="Edit"data-bs-toggle="modal"
+                                                                            data-bs-target="#excelModal" class="btn btn-sm btn-warning btn-icon-text editDataExcel">Edit <i
+                                                                            class="bi bi-pencil-square"></i></a>
+                                                                    </td>
                                                                 </tr>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -196,13 +205,13 @@
         </div>
     </div>
 
-    {{-- Modal Input Excel Manual
+    //!Modal Input Excel Manual
     <div class="modal fade" id="excelModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
         aria-labelledby="formModal" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title fs-5" id="modelHeading"></h4>
+                    <h4 class="modal-title fs-5" id="modelHeadingExcel"></h4>
                     <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -275,18 +284,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary modal-close" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="saveBtn">Save Data</button>
+                    <button type="submit" class="btn btn-primary" id="saveExcel">Save Data</button>
                 </div>
-
             </div>
         </div>
-    </div> --}}
+    </div>
     @include('dashboard.path.jquery')
 
     <script>
-        $(document).ready(function() {
-            $('.datatable-excel').DataTable();
-        });
         $(function() {
             //! Jquery Kecamatan
             var table = $('.data-table').DataTable({
@@ -385,6 +390,135 @@
                 });
             });
 
+            // var tableExcel = $('.datatable-excel').DataTable();
+
+            var tableExcel = $('.datatable-excel').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('kecamatan.excel.index') }}",
+                "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                    if (aData.defunct_ind == "Y") {
+                        $(nRow).addClass("table-danger");
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'puskesmas',
+                        name: 'puskesmas'
+                    },
+                    {
+                        data: 'lakilaki',
+                        name: 'lakilaki'
+                    },
+                    {
+                        data: 'perempuan',
+                        name: 'perempuan'
+                    },
+                    {
+                        data: 'total',
+                        name: 'total'
+                    },
+                    {
+                        data: 'rumah_tangga',
+                        name: 'rumah_tangga'
+                    },
+                    {
+                        data: 'luas_wilayah',
+                        name: 'luas_wilayah'
+                    },
+                    {
+                        data: function(data) {
+                            if (data.defunct_ind == "Y") {
+                                return '<i class="bi bi-check-lg"></i>';
+                            }
+                            return '';
+                        },
+                        name: 'defunct_ind'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+
+            $('#btnExcel').click(function() {
+                $('#saveExcel').val("create-data");
+                $('#id_kecamatan_excel').val('');
+                $('#formDataExcel').trigger("reset");
+                $('#modelHeadingExcel').html("Add Manual Data");
+                $('#excelModal').modal('show');
+            });
+
+            $('#saveExcel').click(function(e) {
+                e.preventDefault();
+                var id_kecamatan_excel = $("#id_kecamatan_excel").val();
+                var puskesmas = $("#puskesmas").val();
+                var lakilaki = $("#lakilaki").val();
+                var perempuan = $("#perempuan").val();
+                var rumah_tangga = $("#rumah_tangga").val();
+                var luas_wilayah = $("#luas_wilayah").val();
+                var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
+                $.ajax({
+                    url: "{{ route('kecamatan.excel.create') }}",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        id_kecamatan_excel: id_kecamatan_excel,
+                        puskesmas: puskesmas,
+                        lakilaki: lakilaki,
+                        perempuan: perempuan,
+                        rumah_tangga: rumah_tangga,
+                        luas_wilayah: luas_wilayah,
+                        defunct_ind: defunct_ind
+                    },
+                    type: "POST",
+                    success: function(data) {
+                        $('.modal-close').click();
+                        $('#formDataExcel').trigger("reset");
+                        $('#excelModal').modal('hide');
+                        tableExcel.draw();
+                        Swal.fire(
+                            'Success',
+                            '',
+                            'success'
+                        );
+                    },
+                })
+            });
+
+            $('body').on('click', '.editDataExcel', function() {
+                var id_kecamatan_excel = $(this).data('id_kecamatan_excel');
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('kecamatan.excel.update') }}",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        id_kecamatan_excel: id_kecamatan_excel
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#modelHeadingExcel').html("Edit Data Kecamatan");
+                        $('#saveExcel').val("edit-data");
+                        $('#excelModal').modal('show');
+                        $('#id_kecamatan_excel').val(data.id_kecamatan_excel);
+                        $('#puskesmas').val(data.puskesmas);
+                        $('#lakilaki').val(data.lakilaki);
+                        $('#perempuan').val(data.perempuan);
+                        $('#rumah_tangga').val(data.rumah_tangga);
+                        $('#luas_wilayah').val(data.luas_wilayah);
+                        if (data.defunct_ind == "Y") {
+                            document.getElementById("defunct_ind").checked = true;
+                        } else {
+                            document.getElementById("defunct_ind").checked = false;
+                        }
+                    }
+                });
+            });
 
         });
     </script>

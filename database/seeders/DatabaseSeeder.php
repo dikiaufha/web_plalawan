@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ApotikSeeder::class);
+        \App\Models\User::factory(1)->create();
 
     }
 }
